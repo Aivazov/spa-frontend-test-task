@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+// import TextField from '@mui/material/TextField';
 import { BiSearch } from 'react-icons/bi';
 import './FilterForm.scss';
 
@@ -29,6 +30,18 @@ export default function FilterForm({ onSubmit }) {
           <BiSearch size="20" className="react-icons-search" />
           <span className="button-label">Search</span>
         </button>
+        {/* <TextField
+          id="outlined-basic"
+          label="Outlined"
+          variant="outlined"
+          className="input"
+          type="text"
+          autoComplete="off"
+          autoFocus
+          placeholder="Search articles"
+          value={searchRequest}
+          onChange={handleNameChange}
+        /> */}
 
         <input
           className="input"
