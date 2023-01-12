@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { BiSearch } from 'react-icons/bi';
-import './FilterForm.scss'
+import './FilterForm.scss';
 
 export default function FilterForm({ onSubmit }) {
   const [searchRequest, setSearchRequest] = useState('');
@@ -23,10 +23,10 @@ export default function FilterForm({ onSubmit }) {
 
   return (
     <header className="searchbar">
+      <p>Filter by keywords</p>
       <form className="form" onSubmit={handleSubmit}>
-        <label>Filter by keywords</label>
         <button type="submit" className="button">
-          <BiSearch size="32" className="react-icons-search" />
+          <BiSearch size="20" className="react-icons-search" />
           <span className="button-label">Search</span>
         </button>
 
