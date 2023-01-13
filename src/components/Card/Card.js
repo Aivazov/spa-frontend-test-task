@@ -6,6 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { CardDateIcon } from '../Icons/cardDateIcon.js';
+import CardBtnArrow from '../Icons/cardBtnArrow.tsx';
 import './Card.scss';
 
 const convertTime = (time) => {
@@ -31,8 +32,8 @@ export default function MediaCard({ title, description, data, image }) {
           color="text.secondary"
           className="card__date"
         >
-          <span className="card__icon--span">
-            <CardDateIcon className="card__icon" />
+          <span className="card__date--span">
+            <CardDateIcon className="card__date--icon" />
           </span>
           {convertTime(data)}
         </Typography>
@@ -56,6 +57,9 @@ export default function MediaCard({ title, description, data, image }) {
         {/* <Button size="small">Read more</Button> */}
         <Button color="secondary" disabled={false} className="card__button">
           Read more
+          <span className="card__button--span">
+            <CardBtnArrow />
+          </span>
         </Button>
       </CardActions>
     </Card>
