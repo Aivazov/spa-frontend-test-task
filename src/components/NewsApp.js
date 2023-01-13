@@ -8,7 +8,7 @@ import Card from '../components/Card/Card';
 axios.defaults.headers.common['Authorization'] =
   'Bearer 48e54ca0458d4c07a6db808cddd7a419';
 
-const fetchArticles = ({ searchQuery = '', currentPage = 1, pageSize = 5 }) => {
+const fetchArticles = ({ searchQuery = '', currentPage = 1, pageSize = 50 }) => {
   return axios
     .get(
       `https://newsapi.org/v2/everything?q=${searchQuery}&pageSize=${pageSize}&page=${currentPage}`
@@ -67,17 +67,25 @@ export default class NewsApp extends Component {
         {error && <h1>This is a mistake</h1>}
 
         <FilterForm onSubmit={this.onChangeQuery} />
-        <ResultsBar />
-        <Card />
+        <ResultsBar total={ articles.length} />
 
         <ul>
-          {articles.map(({ title, url }) => (
-            <li key={title}>
-              <a href={url} target="_blank" rel="noopener noreferrer">
-                {title}
-              </a>
-            </li>
-          ))}
+          {articles.map(
+            ({ title, url, description, publishedAt, urlToImage }) => (
+              // <li key={title}>
+              //   <a href={url} target="_blank" rel="noopener noreferrer">
+              //     {title}
+              //   </a>
+              // </li>
+              <Card
+                key={url}
+                title={title}
+                description={description}
+                data={publishedAt}
+                image={urlToImage}
+              />
+            )
+          )}
         </ul>
 
         {shouldRenderLoadMoreButton && (

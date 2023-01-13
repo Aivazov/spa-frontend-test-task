@@ -8,12 +8,12 @@ import Typography from '@mui/material/Typography';
 // import DataCardIcon from '../Icons/card__data--icon.svg';
 import './Card.scss';
 
-export default function MediaCard() {
+export default function MediaCard({ title, description, data, image }) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         sx={{ height: 140 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
+        image={image ? image : '../components/Icons/NoImage.jpg'}
         title="green iguana"
       />
       <CardContent>
@@ -23,7 +23,7 @@ export default function MediaCard() {
           className="card__data--paragraph"
         >
           {/* <DataCardIcon size="20" /> */}
-          June 29th, 2021
+          June 29th, 2021 {data}
         </Typography>
         <Typography
           gutterBottom
@@ -31,17 +31,14 @@ export default function MediaCard() {
           component="div"
           className="card__title"
         >
-          Title
+          {title}
         </Typography>
         <Typography
           variant="body2"
           color="text.secondary"
           className="card__description"
         >
-          <b>Description</b>
-          Non sed molestie tortor massa vitae in mattis. Eget vel consequat
-          hendrerit commodo libero aliquam. Urna arcu nunc tortor vitae
-          pharetra...
+          {description}
         </Typography>
       </CardContent>
       <CardActions style={{ paddingTop: 0 }}>
