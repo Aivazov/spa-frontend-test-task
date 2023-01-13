@@ -8,8 +8,7 @@ export default function FilterForm({ onSubmit }) {
   const [searchRequest, setSearchRequest] = useState('');
 
   const handleNameChange = (event) => {
-    setSearchRequest(event.currentTarget.value.toLowerCase());
-    // this.setState({ searchRequest: event.currentTarget.value.toLowerCase() });
+    setSearchRequest(event.target.value.toLowerCase());
   };
 
   const handleSubmit = (e) => {
@@ -19,6 +18,7 @@ export default function FilterForm({ onSubmit }) {
     if (searchRequest.trim() === '') {
       return toast.error('Please enter an article name');
     }
+    setSearchRequest('');
     console.log(searchRequest);
   };
 

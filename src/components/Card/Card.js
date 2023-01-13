@@ -5,7 +5,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import './Card.scss'
+// import DataCardIcon from '../Icons/card__data--icon.svg';
+import './Card.scss';
 
 export default function MediaCard() {
   return (
@@ -21,6 +22,7 @@ export default function MediaCard() {
           color="text.secondary"
           className="card__data--paragraph"
         >
+          {/* <DataCardIcon size="20" /> */}
           June 29th, 2021
         </Typography>
         <Typography
@@ -42,9 +44,11 @@ export default function MediaCard() {
           pharetra...
         </Typography>
       </CardContent>
-      <CardActions>
+      <CardActions style={{ paddingTop: 0 }}>
         {/* <Button size="small">Read more</Button> */}
-        <Button color="secondary" disabled={false} className="card__button">Read more</Button>
+        <Button color="secondary" disabled={false} className="card__button">
+          Read more
+        </Button>
       </CardActions>
     </Card>
   );
