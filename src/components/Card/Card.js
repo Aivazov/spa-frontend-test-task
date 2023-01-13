@@ -8,22 +8,32 @@ import Typography from '@mui/material/Typography';
 // import DataCardIcon from '../Icons/card__data--icon.svg';
 import './Card.scss';
 
+const convertTime = (time) => {
+  return new Date(time).toLocaleDateString('en-us', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+};
+
 export default function MediaCard({ title, description, data, image }) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    // <Card sx={{ width: 400, height: 530, marginBottom: 45 }}>
+    <Card className="card">
       <CardMedia
-        sx={{ height: 140 }}
+        sx={{ height: 217 }}
         image={image ? image : '../components/Icons/NoImage.jpg'}
         title="green iguana"
       />
-      <CardContent>
+      <CardContent className="card__body">
         <Typography
           variant="body2"
           color="text.secondary"
           className="card__data--paragraph"
         >
           {/* <DataCardIcon size="20" /> */}
-          June 29th, 2021 {data}
+          {convertTime(data)}
+          {/* {Date(data).toLocaleString()} */}
         </Typography>
         <Typography
           gutterBottom
@@ -41,7 +51,7 @@ export default function MediaCard({ title, description, data, image }) {
           {description}
         </Typography>
       </CardContent>
-      <CardActions style={{ paddingTop: 0 }}>
+      <CardActions>
         {/* <Button size="small">Read more</Button> */}
         <Button color="secondary" disabled={false} className="card__button">
           Read more

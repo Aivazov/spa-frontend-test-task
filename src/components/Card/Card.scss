@@ -1,3 +1,17 @@
+.card {
+  height: 530px;
+  width: 400px;
+  margin-bottom: 45px;
+}
+
+.card__body {
+  display: flex;
+  overflow: hidden;
+  height: 226px;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
 .card__data--paragraph {
   display: block;
   font-family: 'Montserrat';
@@ -33,10 +47,11 @@
 
 .card__button {
   font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 700;
+  font-weight: 700 !important;
   font-size: 16px;
   line-height: 150%;
   color: #363636 !important;
   text-transform: capitalize !important;
+  display: block;
+  margin: 0 auto 15px auto;
 }

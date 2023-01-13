@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
+import Button from '@mui/material/Button';
+
 import FilterForm from '../components/FilterForm/FilterForm';
 import ResultsBar from '../components/ResultsBar/ResultsBar';
 import Card from '../components/Card/Card';
@@ -8,7 +10,7 @@ import Card from '../components/Card/Card';
 axios.defaults.headers.common['Authorization'] =
   'Bearer 48e54ca0458d4c07a6db808cddd7a419';
 
-const fetchArticles = ({ searchQuery = '', currentPage = 1, pageSize = 50 }) => {
+const fetchArticles = ({ searchQuery = '', currentPage = 1, pageSize = 9 }) => {
   return axios
     .get(
       `https://newsapi.org/v2/everything?q=${searchQuery}&pageSize=${pageSize}&page=${currentPage}`
@@ -67,9 +69,9 @@ export default class NewsApp extends Component {
         {error && <h1>This is a mistake</h1>}
 
         <FilterForm onSubmit={this.onChangeQuery} />
-        <ResultsBar total={ articles.length} />
+        <ResultsBar total={articles.length} />
 
-        <ul>
+        <ul className="card__list">
           {articles.map(
             ({ title, url, description, publishedAt, urlToImage }) => (
               // <li key={title}>
@@ -89,20 +91,18 @@ export default class NewsApp extends Component {
         </ul>
 
         {shouldRenderLoadMoreButton && (
-          <button
+          <Button
+            variant="contained"
+            disabled={false}
             type="button"
-            className="btn btn-primary mt-3 mb-3"
+            className="load-more__btn"
             onClick={this.fetchArticles}
           >
             Load More
-          </button>
+          </Button>
         )}
 
-        {isLoading && (
-          <p style={{ fontSize: 24, display: 'flex', alignItems: 'center' }}>
-            Loading...
-          </p>
-        )}
+        {isLoading && <p style={{ fontSize: 24 }}>Loading...</p>}
       </div>
     );
   }

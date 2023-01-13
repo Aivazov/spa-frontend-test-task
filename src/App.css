@@ -11,6 +11,17 @@
  
 }
 
+.card__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.load-more__btn {
+  
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
