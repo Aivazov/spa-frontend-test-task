@@ -10,7 +10,11 @@ import Card from '../components/Card/Card';
 axios.defaults.headers.common['Authorization'] =
   'Bearer 48e54ca0458d4c07a6db808cddd7a419';
 
-const fetchArticles = ({ searchQuery = '', currentPage = 1, pageSize = 50 }) => {
+const fetchArticlesAPI = ({
+  searchQuery = '',
+  currentPage = 1,
+  pageSize = 6,
+}) => {
   return axios
     .get(
       `https://newsapi.org/v2/everything?q=${searchQuery}&pageSize=${pageSize}&page=${currentPage}`
@@ -21,15 +25,28 @@ const fetchArticles = ({ searchQuery = '', currentPage = 1, pageSize = 50 }) => 
 export default class NewsApp extends Component {
   state = {
     articles: [],
+    filteringValue: '',
     currentPage: 1,
-    searchQuery: '',
+    searchQuery: 'nasa',
     isLoading: false,
     error: null,
   };
 
+  componentDidMount() {
+    this.fetchArticles();
+
+    // if (this.state.articles !== null) {
+    //   const gettingArticles = localStorage.getItem('articles');
+    //   if (gettingArticles !== null) {
+    //     const parsedArticles = JSON.parse(gettingArticles);
+    //     this.setState({ gettingArticles: parsedArticles });
+    //   }
+    // }
+  }
+
   componentDidUpdate(prevProps, prevState) {
     if (prevState.searchQuery !== this.state.searchQuery) {
-      this.fetchArticles();
+      // this.fetchArticles();
     }
   }
 
@@ -42,13 +59,18 @@ export default class NewsApp extends Component {
     });
   };
 
+  onChangeFilterValue = (e) => {
+    this.setState({ filteringValue: e.currentTarget.value });
+    // console.log(this.state.stateFilter);
+  };
+
   fetchArticles = () => {
     const { currentPage, searchQuery } = this.state;
     const options = { searchQuery, currentPage };
 
     this.setState({ isLoading: true });
 
-    fetchArticles(options)
+    fetchArticlesAPI(options)
       .then((articles) => {
         this.setState((prevState) => ({
           articles: [...prevState.articles, ...articles],
@@ -60,7 +82,11 @@ export default class NewsApp extends Component {
   };
 
   render() {
-    const { articles, isLoading, error } = this.state;
+    const { articles, isLoading, error, filteringValue } = this.state;
+    const normalizedFilteringValue = filteringValue.toLowerCase();
+    const filteredArticles = articles.filter((article) =>
+      article.title.toLowerCase().includes(normalizedFilteringValue)
+    );
     const shouldRenderLoadMoreButton = articles.length > 0 && !isLoading;
 
     console.log(articles);
