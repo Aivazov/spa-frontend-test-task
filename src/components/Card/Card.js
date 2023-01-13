@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-// import DataCardIcon from '../Icons/card__data--icon.svg';
+import { CardDateIcon } from '../Icons/cardDateIcon.js';
 import './Card.scss';
 
 const convertTime = (time) => {
@@ -18,10 +18,10 @@ const convertTime = (time) => {
 
 export default function MediaCard({ title, description, data, image }) {
   return (
-    // <Card sx={{ width: 400, height: 530, marginBottom: 45 }}>
     <Card className="card">
       <CardMedia
         sx={{ height: 217 }}
+        // image="../components/Icons/NoImage.jpg"
         image={image ? image : '../components/Icons/NoImage.jpg'}
         title="green iguana"
       />
@@ -29,11 +29,12 @@ export default function MediaCard({ title, description, data, image }) {
         <Typography
           variant="body2"
           color="text.secondary"
-          className="card__data--paragraph"
+          className="card__date"
         >
-          {/* <DataCardIcon size="20" /> */}
+          <span className="card__icon--span">
+            <CardDateIcon className="card__icon" />
+          </span>
           {convertTime(data)}
-          {/* {Date(data).toLocaleString()} */}
         </Typography>
         <Typography
           gutterBottom

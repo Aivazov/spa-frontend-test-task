@@ -12,7 +12,17 @@
   flex: 1 1 auto;
 }
 
-.card__data--paragraph {
+.card__icon--span {
+  margin-right: 10px;
+}
+
+.card__icon {
+  width: 12px;
+  height: 12px;
+  margin-right: 10px !important;
+}
+
+.card__date {
   display: block;
   font-family: 'Montserrat';
   font-style: normal;
