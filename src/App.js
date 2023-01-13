@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import FilterForm from './components/FilterForm/FilterForm';
 import ResultsBar from './components/ResultsBar/ResultsBar';
 import Card from './components/Card/Card';
+import NewsApp from './components/NewsApp'
 
 const API_KEY = '48e54ca0458d4c07a6db808cddd7a419';
 
@@ -47,7 +48,8 @@ function App() {
   return (
     <div className="App">
       <div className="wrap">
-        <FilterForm onSubmit={handleSearchName} />
+        <NewsApp />
+        {/* <FilterForm onSubmit={handleSearchName} />
         <ResultsBar />
         <Card />
 
@@ -65,7 +67,7 @@ function App() {
           <p style={{ fontSize: 24, display: 'flex', alignItems: 'center' }}>
             Loading...
           </p>
-        )}
+        )} */}
       </div>
     </div>
   );
