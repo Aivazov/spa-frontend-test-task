@@ -33,6 +33,7 @@ export default class NewsApp extends Component {
   };
 
   componentDidMount() {
+    // fetchArticlesAPI();
     this.fetchArticles();
 
     // if (this.state.articles !== null) {
@@ -45,9 +46,9 @@ export default class NewsApp extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.searchQuery !== this.state.searchQuery) {
+    // if (prevState.searchQuery !== this.state.searchQuery) {
       // this.fetchArticles();
-    }
+    // }
   }
 
   onChangeQuery = (query) => {
@@ -73,7 +74,8 @@ export default class NewsApp extends Component {
     fetchArticlesAPI(options)
       .then((articles) => {
         this.setState((prevState) => ({
-          articles: [...prevState.articles, ...articles],
+          // articles: [...prevState.articles, ...articles],
+          articles: articles,
           currentPage: prevState.currentPage + 1,
         }));
       })
