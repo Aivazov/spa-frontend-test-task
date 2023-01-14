@@ -3,7 +3,6 @@ import '../App.css';
 import axios from 'axios';
 // import Highlighter from 'react-highlight-words';
 import Button from '@mui/material/Button';
-// import { ThreeDots, BallTriangle } from 'react-loading-icons';
 import { InfinitySpin } from 'react-loader-spinner';
 
 import FilterForm from '../components/FilterForm/FilterForm';
