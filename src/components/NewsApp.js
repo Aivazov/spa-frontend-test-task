@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
 import Button from '@mui/material/Button';
+import Highlighter from 'react-highlight-words';
 
 import FilterForm from '../components/FilterForm/FilterForm';
 import ResultsBar from '../components/ResultsBar/ResultsBar';
@@ -103,24 +104,26 @@ export default class NewsApp extends Component {
         />
         <ResultsBar total={articles.length} />
 
-        <ul className="card__list">
-          {filteredArticles.map(
-            ({ title, url, description, publishedAt, urlToImage }) => (
-              // <li key={title}>
-              //   <a href={url} target="_blank" rel="noopener noreferrer">
-              //     {title}
-              //   </a>
-              // </li>
-              <Card
-                key={url}
-                title={title}
-                description={description}
-                data={publishedAt}
-                image={urlToImage}
-              />
-            )
-          )}
-        </ul>
+        <Highlighter>
+          <ul className="card__list">
+            {filteredArticles.map(
+              ({ title, url, description, publishedAt, urlToImage }) => (
+                // <li key={title}>
+                //   <a href={url} target="_blank" rel="noopener noreferrer">
+                //     {title}
+                //   </a>
+                // </li>
+                <Card
+                  key={url}
+                  title={title}
+                  description={description}
+                  data={publishedAt}
+                  image={urlToImage}
+                />
+              )
+            )}
+          </ul>
+        </Highlighter>
 
         {shouldRenderLoadMoreButton && (
           <Button

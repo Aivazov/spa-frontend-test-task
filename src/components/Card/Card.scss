@@ -38,6 +38,8 @@
 }
 
 .card__title {
+  height: 64px;
+  overflow: hidden;
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
