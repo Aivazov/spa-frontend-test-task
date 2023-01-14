@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
-import Highlighter from 'react-highlight-words';
+// import Highlighter from 'react-highlight-words';
 import Button from '@mui/material/Button';
 // import { ThreeDots, BallTriangle } from 'react-loading-icons';
 import { InfinitySpin } from 'react-loader-spinner';
@@ -101,8 +101,9 @@ export default class NewsApp extends Component {
     // );
     const shouldRenderLoadMoreButton =
       filteredArticles.length > 0 && !isLoading;
+    console.log('normalizedFilteringValue', normalizedFilteringValue);
     console.log('filteredArticles', filteredArticles);
-    console.log('articles', articles);
+    // console.log('articles', articles);
     return (
       <div style={{ margin: 15 }}>
         {error && <h1>This is a mistake</h1>}
@@ -112,6 +113,9 @@ export default class NewsApp extends Component {
           value={filteringValue}
           onChange={this.onChangeFilterValue}
         />
+        <p>
+          <mark>{normalizedFilteringValue}</mark>
+        </p>
         <ResultsBar total={filteredArticles.length} />
 
         <ul className="card__list">

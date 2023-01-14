@@ -4,7 +4,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import Highlighter from 'react-highlight-words';
+// import Highlighter from 'react-highlight-words';
 import Typography from '@mui/material/Typography';
 import { CardDateIcon } from '../Icons/cardDateIcon.tsx';
 import { CardBtnArrow } from '../Icons/cardBtnArrow.tsx';
@@ -16,6 +16,10 @@ const convertTime = (time) => {
     month: 'long',
     day: 'numeric',
   });
+};
+
+const search = (keyword) => {
+  let regExp = new RegExp(keyword, 'gi');
 };
 
 export default function MediaCard({
