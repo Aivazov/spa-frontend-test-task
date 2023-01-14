@@ -105,66 +105,70 @@ export default class NewsApp extends Component {
     console.log('filteredArticles', filteredArticles);
     // console.log('articles', articles);
     return (
-      <div style={{ margin: 15 }}>
-        {error && <h1>This is a mistake</h1>}
+      <div className="App">
+        <div className="wrap">
+          <div style={{ margin: 15 }}>
+            {error && <h1>This is a mistake</h1>}
 
-        <FilterForm
-          // onSubmit={this.onChangeQuery}
-          value={filteringValue}
-          onChange={this.onChangeFilterValue}
-        />
-        <p>
-          <mark>{normalizedFilteringValue}</mark>
-        </p>
-        <ResultsBar total={filteredArticles.length} />
-
-        <ul className="card__list">
-          {filteredArticles.map(
-            ({ title, url, description, publishedAt, urlToImage }) => (
-              <Card
-                filterArr={filteredArticles}
-                key={url}
-                title={title}
-                description={description}
-                data={publishedAt}
-                image={urlToImage}
-              />
-            )
-          )}
-        </ul>
-
-        {shouldRenderLoadMoreButton && (
-          <Button
-            variant="contained"
-            disabled={false}
-            type="button"
-            className="load-more__btn"
-            onClick={this.fetchArticles}
-          >
-            Load More
-          </Button>
-        )}
-
-        {!shouldRenderLoadMoreButton && !isLoading && (
-          <p>No matches. Please try again</p>
-        )}
-
-        {/* Loading */}
-
-        {isLoading && (
-          <p style={{ fontSize: 24 }}>
-            <InfinitySpin
-              height={200}
-              width={200}
-              radius={10}
-              color="#363636"
-              ariaLabel="ball-triangle-loading"
-              wrapperClass={{}}
-              wrapperStyle=""
-              visible={true}
+            <FilterForm
+              // onSubmit={this.onChangeQuery}
+              value={filteringValue}
+              onChange={this.onChangeFilterValue}
             />
-          </p>
-        )}
+            <p>
+              <mark>{normalizedFilteringValue}</mark>
+            </p>
+            <ResultsBar total={filteredArticles.length} />
+
+            <ul className="card__list">
+              {filteredArticles.map(
+                ({ title, url, description, publishedAt, urlToImage }) => (
+                  <Card
+                    filterArr={filteredArticles}
+                    key={url}
+                    title={title}
+                    description={description}
+                    data={publishedAt}
+                    image={urlToImage}
+                  />
+                )
+              )}
+            </ul>
+
+            {shouldRenderLoadMoreButton && (
+              <Button
+                variant="contained"
+                disabled={false}
+                type="button"
+                className="load-more__btn"
+                onClick={this.fetchArticles}
+              >
+                Load More
+              </Button>
+            )}
+
+            {!shouldRenderLoadMoreButton && !isLoading && (
+              <p>No matches. Please try again</p>
+            )}
+
+            {/* Loading */}
+
+            {isLoading && (
+              <p style={{ fontSize: 24 }}>
+                <InfinitySpin
+                  height={200}
+                  width={200}
+                  radius={10}
+                  color="#363636"
+                  ariaLabel="ball-triangle-loading"
+                  wrapperClass={{}}
+                  wrapperStyle=""
+                  visible={true}
+                />
+              </p>
+            )}
+          </div>
+        </div>
       </div>
     );
   }
