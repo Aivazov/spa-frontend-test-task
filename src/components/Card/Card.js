@@ -4,6 +4,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
+import Highlighter from 'react-highlight-words';
 import Typography from '@mui/material/Typography';
 import { CardDateIcon } from '../Icons/cardDateIcon.tsx';
 import { CardBtnArrow } from '../Icons/cardBtnArrow.tsx';
@@ -17,14 +18,20 @@ const convertTime = (time) => {
   });
 };
 
-export default function MediaCard({ title, description, data, image }) {
+export default function MediaCard({
+  title,
+  description,
+  data,
+  image,
+  filterArr,
+}) {
   return (
     <Card className="card">
       <CardMedia
         sx={{ height: 217 }}
         // image="../components/Icons/NoImage.jpg"
         image={image ? image : '../components/Icons/NoImage.jpg'}
-        title="green iguana"
+        title={title}
       />
       <CardContent className="card__body">
         <Typography
@@ -43,7 +50,10 @@ export default function MediaCard({ title, description, data, image }) {
           component="div"
           className="card__title"
         >
-          {title}
+          {title && (
+            <Highlighter searchWords={filterArr} textToHighlight={title} />
+          )}
+          {/* {title} */}
         </Typography>
         <Typography
           variant="body2"
@@ -54,7 +64,6 @@ export default function MediaCard({ title, description, data, image }) {
         </Typography>
       </CardContent>
       <CardActions>
-        {/* <Button size="small">Read more</Button> */}
         <Button color="secondary" disabled={false} className="card__button">
           Read more
           <span className="card__button--span">

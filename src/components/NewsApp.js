@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
-import Button from '@mui/material/Button';
 import Highlighter from 'react-highlight-words';
+import Button from '@mui/material/Button';
+// import { ThreeDots, BallTriangle } from 'react-loading-icons';
+import { InfinitySpin } from 'react-loader-spinner';
 
 import FilterForm from '../components/FilterForm/FilterForm';
 import ResultsBar from '../components/ResultsBar/ResultsBar';
@@ -72,16 +74,18 @@ export default class NewsApp extends Component {
 
     this.setState({ isLoading: true });
 
-    fetchArticlesAPI(options)
-      .then((articles) => {
-        this.setState((prevState) => ({
-          // articles: [...prevState.articles, ...articles],
-          articles: articles,
-          currentPage: prevState.currentPage + 1,
-        }));
-      })
-      .catch((error) => this.setState({ error }))
-      .finally(() => this.setState({ isLoading: false }));
+    setTimeout(() => {
+      fetchArticlesAPI(options)
+        .then((articles) => {
+          this.setState((prevState) => ({
+            // articles: [...prevState.articles, ...articles],
+            articles: articles,
+            currentPage: prevState.currentPage + 1,
+          }));
+        })
+        .catch((error) => this.setState({ error }))
+        .finally(() => this.setState({ isLoading: false }));
+    }, 1000);
   };
 
   render() {
@@ -91,8 +95,14 @@ export default class NewsApp extends Component {
     const filteredArticles = articles.filter((article) =>
       article.title.toLowerCase().includes(normalizedFilteringValue)
     );
-    const shouldRenderLoadMoreButton = articles.length > 0 && !isLoading;
-
+    // const highlightedFilter = filteredArticles.replace(
+    //   /[.*+?^${}()|[\]\\]/g,
+    //   '\\$&'
+    // );
+    const shouldRenderLoadMoreButton =
+      filteredArticles.length > 0 && !isLoading;
+    console.log('filteredArticles', filteredArticles);
+    console.log('articles', articles);
     return (
       <div style={{ margin: 15 }}>
         {error && <h1>This is a mistake</h1>}
@@ -102,28 +112,22 @@ export default class NewsApp extends Component {
           value={filteringValue}
           onChange={this.onChangeFilterValue}
         />
-        <ResultsBar total={articles.length} />
+        <ResultsBar total={filteredArticles.length} />
 
-        <Highlighter>
-          <ul className="card__list">
-            {filteredArticles.map(
-              ({ title, url, description, publishedAt, urlToImage }) => (
-                // <li key={title}>
-                //   <a href={url} target="_blank" rel="noopener noreferrer">
-                //     {title}
-                //   </a>
-                // </li>
-                <Card
-                  key={url}
-                  title={title}
-                  description={description}
-                  data={publishedAt}
-                  image={urlToImage}
-                />
-              )
-            )}
-          </ul>
-        </Highlighter>
+        <ul className="card__list">
+          {filteredArticles.map(
+            ({ title, url, description, publishedAt, urlToImage }) => (
+              <Card
+                filterArr={filteredArticles}
+                key={url}
+                title={title}
+                description={description}
+                data={publishedAt}
+                image={urlToImage}
+              />
+            )
+          )}
+        </ul>
 
         {shouldRenderLoadMoreButton && (
           <Button
@@ -137,7 +141,26 @@ export default class NewsApp extends Component {
           </Button>
         )}
 
-        {isLoading && <p style={{ fontSize: 24 }}>Loading...</p>}
+        {!shouldRenderLoadMoreButton && !isLoading && (
+          <p>No matches. Please try again</p>
+        )}
+
+        {/* Loading */}
+
+        {isLoading && (
+          <p style={{ fontSize: 24 }}>
+            <InfinitySpin
+              height={200}
+              width={200}
+              radius={10}
+              color="#363636"
+              ariaLabel="ball-triangle-loading"
+              wrapperClass={{}}
+              wrapperStyle=""
+              visible={true}
+            />
+          </p>
+        )}
       </div>
     );
   }
