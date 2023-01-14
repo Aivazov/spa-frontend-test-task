@@ -6,8 +6,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 // import Highlighter from 'react-highlight-words';
 import Typography from '@mui/material/Typography';
-import { CardDateIcon } from '../Icons/cardDateIcon.tsx';
-import { CardBtnArrow } from '../Icons/cardBtnArrow.tsx';
+import { CardDateIcon } from '../Icons/cardDateIcon.js';
+import { CardBtnArrow } from '../Icons/cardBtnArrow.js';
 import './Card.scss';
 
 const convertTime = (time) => {
@@ -18,14 +18,14 @@ const convertTime = (time) => {
   });
 };
 
-const search = (keyword) => {
-  let regExp = new RegExp(keyword, 'gi');
-};
+// const search = (keyword) => {
+//   let regExp = new RegExp(keyword, 'gi');
+// };
 
 export default function MediaCard({
   title,
   description,
-  data,
+  date,
   image,
   filterArr,
 }) {
@@ -46,7 +46,7 @@ export default function MediaCard({
           <span className="card__date--span">
             <CardDateIcon className="card__date--icon" />
           </span>
-          {convertTime(data)}
+          {convertTime(date)}
         </Typography>
         <Typography
           gutterBottom

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 // import Highlighter from 'react-highlight-words'
-// import TextField from '@mui/material/TextField';
 import { BiSearch } from 'react-icons/bi';
 import './FilterForm.scss';
 
@@ -20,7 +19,7 @@ export default function FilterForm({ onSubmit, value, onChange }) {
       return toast.error('Please enter an article name');
     }
     setSearchRequest('');
-    console.log(searchRequest);
+    // console.log(searchRequest);
   };
 
   return (
@@ -31,18 +30,6 @@ export default function FilterForm({ onSubmit, value, onChange }) {
           <BiSearch size="20" className="react-icons-search" />
           <span className="button-label">Search</span>
         </button>
-        {/* <TextField
-          id="outlined-basic"
-          label="Outlined"
-          variant="outlined"
-          className="input"
-          type="text"
-          autoComplete="off"
-          autoFocus
-          placeholder="Search articles"
-          value={searchRequest}
-          onChange={handleNameChange}
-        /> */}
 
         <input
           className="input"

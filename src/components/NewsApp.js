@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
-// import Highlighter from 'react-highlight-words';
 import Button from '@mui/material/Button';
 import { InfinitySpin } from 'react-loader-spinner';
 
-import FilterForm from '../components/FilterForm/FilterForm';
-import ResultsBar from '../components/ResultsBar/ResultsBar';
-import Card from '../components/Card/Card';
+import FilterForm from '../components/FilterForm/FilterForm.tsx';
+import ResultsBar from '../components/ResultsBar/ResultsBar.tsx';
+import Card from './Card/Card.js';
 
 axios.defaults.headers.common['Authorization'] =
   'Bearer 48e54ca0458d4c07a6db808cddd7a419';
@@ -15,7 +14,7 @@ axios.defaults.headers.common['Authorization'] =
 const fetchArticlesAPI = ({
   searchQuery = '',
   currentPage = 1,
-  pageSize = 18,
+  pageSize = 6,
 }) => {
   return axios
     .get(
@@ -89,19 +88,20 @@ export default class NewsApp extends Component {
 
   render() {
     const { articles, isLoading, error, filteringValue } = this.state;
-    // console.log(articles);
     const normalizedFilteringValue = filteringValue.toLowerCase();
     const filteredArticles = articles.filter((article) =>
       article.title.toLowerCase().includes(normalizedFilteringValue)
     );
+
+    console.log(articles);
     // const highlightedFilter = filteredArticles.replace(
     //   /[.*+?^${}()|[\]\\]/g,
     //   '\\$&'
     // );
     const shouldRenderLoadMoreButton =
       filteredArticles.length > 0 && !isLoading;
-    console.log('normalizedFilteringValue', normalizedFilteringValue);
-    console.log('filteredArticles', filteredArticles);
+    // console.log('normalizedFilteringValue', normalizedFilteringValue);
+    // console.log('filteredArticles', filteredArticles);
     // console.log('articles', articles);
     return (
       <div className="App">
@@ -121,13 +121,20 @@ export default class NewsApp extends Component {
 
             <ul className="card__list">
               {filteredArticles.map(
-                ({ title, url, description, publishedAt, urlToImage }) => (
+                ({
+                  title,
+                  url,
+                  description,
+                  publishedAt,
+                  urlToImage,
+                  content,
+                }) => (
                   <Card
                     filterArr={filteredArticles}
                     key={url}
                     title={title}
                     description={description}
-                    data={publishedAt}
+                    date={publishedAt}
                     image={urlToImage}
                   />
                 )
