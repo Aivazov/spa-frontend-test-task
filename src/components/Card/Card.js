@@ -50,10 +50,10 @@ export default function MediaCard({
           component="div"
           className="card__title"
         >
-          {title && (
+          {/* {title && (
             <Highlighter searchWords={filterArr} textToHighlight={title} />
-          )}
-          {/* {title} */}
+          )} */}
+          {title}
         </Typography>
         <Typography
           variant="body2"
