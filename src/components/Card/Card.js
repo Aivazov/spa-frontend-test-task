@@ -5,8 +5,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { CardDateIcon } from '../Icons/cardDateIcon.js';
-import CardBtnArrow from '../Icons/cardBtnArrow.tsx';
+import { CardDateIcon } from '../Icons/cardDateIcon.tsx';
+import { CardBtnArrow } from '../Icons/cardBtnArrow.tsx';
 import './Card.scss';
 
 const convertTime = (time) => {

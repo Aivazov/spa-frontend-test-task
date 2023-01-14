@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import { BiSearch } from 'react-icons/bi';
 import './FilterForm.scss';
 
-export default function FilterForm({ onSubmit }) {
+export default function FilterForm({ onSubmit, value, onChange }) {
   const [searchRequest, setSearchRequest] = useState('');
 
   const handleNameChange = (event) => {
@@ -49,8 +49,10 @@ export default function FilterForm({ onSubmit }) {
           autoComplete="off"
           autoFocus
           placeholder="Search articles"
-          value={searchRequest}
-          onChange={handleNameChange}
+          value={value}
+          // value={searchRequest}
+          onChange={onChange}
+          // onChange={handleNameChange}
         />
       </form>
     </header>

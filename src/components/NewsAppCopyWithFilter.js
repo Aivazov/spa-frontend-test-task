@@ -94,7 +94,7 @@ export default class NewsApp extends Component {
 
     return (
       <div style={{ margin: 15 }}>
-        {error && <h1>This is a mistake</h1>}
+        {/* {error && <h1>This is a mistake</h1>}
 
         <FilterForm
           // onSubmit={this.onChangeQuery}
@@ -134,7 +134,7 @@ export default class NewsApp extends Component {
           </Button>
         )}
 
-        {isLoading && <p style={{ fontSize: 24 }}>Loading...</p>}
+        {isLoading && <p style={{ fontSize: 24 }}>Loading...</p>} */}
       </div>
     );
   }
