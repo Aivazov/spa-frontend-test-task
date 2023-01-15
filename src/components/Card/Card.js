@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Routes, Route, NavLink, Link } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -66,7 +67,15 @@ export default function MediaCard({
         </Typography>
       </CardContent>
       <CardActions>
-        <a
+        <NavLink to={`${url}`}>
+          <Button color="secondary" disabled={false} className="card__button">
+            Read more
+            <span className="card__button--span">
+              <CardBtnArrow />
+            </span>
+          </Button>
+        </NavLink> 
+        {/* <a
           href={url}
           target="_blank"
           rel="noreferrer"
@@ -77,7 +86,7 @@ export default function MediaCard({
               <CardBtnArrow />
             </span>
           </Button>
-        </a>
+        </a> */}
       </CardActions>
     </Card>
   );

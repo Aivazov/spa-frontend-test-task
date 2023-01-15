@@ -84,7 +84,7 @@ export default class NewsApp extends Component {
         })
         .catch((error) => this.setState({ error }))
         .finally(() => this.setState({ isLoading: false }));
-    }, 1000);
+    }, 600);
   };
 
   render() {
@@ -153,8 +153,7 @@ export default class NewsApp extends Component {
                 disabled={false}
                 type="button"
                 className="load-more__btn"
-                onClick={this.fetchArticles}
-              >
+                onClick={this.fetchArticles}>
                 Load More
               </Button>
             )}
