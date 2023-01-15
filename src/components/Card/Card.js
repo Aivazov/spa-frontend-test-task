@@ -28,6 +28,7 @@ export default function MediaCard({
   date,
   image,
   filterArr,
+  url,
 }) {
   return (
     <Card className="card">
@@ -68,12 +69,14 @@ export default function MediaCard({
         </Typography>
       </CardContent>
       <CardActions>
-        <Button color="secondary" disabled={false} className="card__button">
-          Read more
-          <span className="card__button--span">
-            <CardBtnArrow />
-          </span>
-        </Button>
+        <a href={url} target="_blank" rel="noreferrer">
+          <Button color="secondary" disabled={false} className="card__button">
+            Read more
+            <span className="card__button--span">
+              <CardBtnArrow />
+            </span>
+          </Button>
+        </a>
       </CardActions>
     </Card>
   );

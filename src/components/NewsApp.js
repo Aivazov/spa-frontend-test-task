@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
 import Button from '@mui/material/Button';
-import { InfinitySpin } from 'react-loader-spinner';
+// import { InfinitySpin } from 'react-loader-spinner';
 
 import FilterForm from '../components/FilterForm/FilterForm.tsx';
 import ResultsBar from '../components/ResultsBar/ResultsBar.tsx';
 import Card from './Card/Card.js';
+import Article from './Article/Article.tsx';
+import Loader from './Loader/Loader.tsx';
 
 axios.defaults.headers.common['Authorization'] =
   'Bearer 48e54ca0458d4c07a6db808cddd7a419';
@@ -119,6 +121,8 @@ export default class NewsApp extends Component {
             </p>
             <ResultsBar total={filteredArticles.length} />
 
+            {/* Rendering Cards */}
+
             <ul className="card__list">
               {filteredArticles.map(
                 ({
@@ -136,10 +140,13 @@ export default class NewsApp extends Component {
                     description={description}
                     date={publishedAt}
                     image={urlToImage}
+                    url={url}
                   />
                 )
               )}
             </ul>
+
+            {/* Load More Button */}
 
             {shouldRenderLoadMoreButton && (
               <Button
@@ -153,27 +160,25 @@ export default class NewsApp extends Component {
               </Button>
             )}
 
+            {/* No matches check */}
+
             {!shouldRenderLoadMoreButton && !isLoading && (
               <p>No matches. Please try again</p>
             )}
 
             {/* Loading */}
 
-            {isLoading && (
-              <p style={{ fontSize: 24 }}>
-                <InfinitySpin
-                  height={200}
-                  width={200}
-                  radius={10}
-                  color="#363636"
-                  ariaLabel="ball-triangle-loading"
-                  wrapperClass={{}}
-                  wrapperStyle=""
-                  visible={true}
-                />
-              </p>
-            )}
+            {isLoading && <Loader />}
           </div>
+        </div>
+        <div className="wrap">
+          {filteredArticles.map(({ title, content, url }) => (
+            <Article
+              key={url}
+              articlesTitle={title}
+              articlesContent={content}
+            />
+          ))}
         </div>
       </div>
     );
