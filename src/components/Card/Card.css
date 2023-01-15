@@ -73,4 +73,8 @@
 
 .card__button--span {
   margin-left: 6px;
+}
+
+.read-more__link {
+  text-decoration: none;
 }/*# sourceMappingURL=Card.css.map */

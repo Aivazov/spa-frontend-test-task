@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
 import Button from '@mui/material/Button';
-// import { InfinitySpin } from 'react-loader-spinner';
 
 import FilterForm from '../components/FilterForm/FilterForm.tsx';
 import ResultsBar from '../components/ResultsBar/ResultsBar.tsx';
 import Card from './Card/Card.js';
-import Article from './Article/Article.tsx';
+// import Article from './Article/Article.tsx';
 import Loader from './Loader/Loader.tsx';
 
 axios.defaults.headers.common['Authorization'] =
@@ -171,7 +170,7 @@ export default class NewsApp extends Component {
             {isLoading && <Loader />}
           </div>
         </div>
-        <div className="wrap">
+        {/* <div className="wrap">
           {filteredArticles.map(({ title, content, url }) => (
             <Article
               key={url}
@@ -179,7 +178,7 @@ export default class NewsApp extends Component {
               articlesContent={content}
             />
           ))}
-        </div>
+        </div> */}
       </div>
     );
   }

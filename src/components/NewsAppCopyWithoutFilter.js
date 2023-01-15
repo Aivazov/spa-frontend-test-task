@@ -3,14 +3,15 @@ import '../App.css';
 import axios from 'axios';
 import Button from '@mui/material/Button';
 
-import FilterForm from '../components/FilterForm/FilterForm';
-import ResultsBar from '../components/ResultsBar/ResultsBar';
+import FilterFormSubmit from '../components/FilterForm/FilterFormSubmit.tsx';
+import ResultsBar from '../components/ResultsBar/ResultsBar.tsx';
 import Card from '../components/Card/Card';
+import Loader from './Loader/Loader.tsx';
 
 axios.defaults.headers.common['Authorization'] =
   'Bearer 48e54ca0458d4c07a6db808cddd7a419';
 
-const fetchArticles = ({ searchQuery = '', currentPage = 1, pageSize = 9 }) => {
+const fetchArticles = ({ searchQuery = '', currentPage = 1, pageSize = 6 }) => {
   return axios
     .get(
       `https://newsapi.org/v2/everything?q=${searchQuery}&pageSize=${pageSize}&page=${currentPage}`
@@ -66,25 +67,21 @@ export default class NewsApp extends Component {
     console.log(articles);
     return (
       <div style={{ margin: 15 }}>
-        {/* {error && <h1>This is a mistake</h1>}
+        {error && <h1>This is a mistake</h1>}
 
-        <FilterForm onSubmit={this.onChangeQuery} />
+        <FilterFormSubmit onSubmit={this.onChangeQuery} />
         <ResultsBar total={articles.length} />
 
         <ul className="card__list">
           {articles.map(
             ({ title, url, description, publishedAt, urlToImage }) => (
-              // <li key={title}>
-              //   <a href={url} target="_blank" rel="noopener noreferrer">
-              //     {title}
-              //   </a>
-              // </li>
               <Card
                 key={url}
                 title={title}
                 description={description}
-                data={publishedAt}
+                date={publishedAt}
                 image={urlToImage}
+                url={url}
               />
             )
           )}
@@ -96,13 +93,15 @@ export default class NewsApp extends Component {
             disabled={false}
             type="button"
             className="load-more__btn"
-            onClick={this.fetchArticles}
-          >
+            onClick={this.fetchArticles}>
             Load More
           </Button>
         )}
 
-        {isLoading && <p style={{ fontSize: 24 }}>Loading...</p>} */}
+        {isLoading && (
+          // <p style={{ fontSize: 24 }}>Loading...</p>
+          <Loader />
+        )}
       </div>
     );
   }
