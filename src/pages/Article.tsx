@@ -3,6 +3,7 @@ import React from 'react';
 import { ArticleBtnArrow } from '../components/Icons/articleBtnArrow.js';
 import Button from '@mui/material/Button';
 import '../App.css';
+import '../components/pages_styles/Article.scss';
 
 export default function Article({ articlesTitle, articlesContent }) {
   console.log(articlesContent);
@@ -15,7 +16,9 @@ export default function Article({ articlesTitle, articlesContent }) {
         <span style={{ marginRight: 6, display: 'block' }}>
           <ArticleBtnArrow />
         </span>
-        <Link to="/">Back</Link>
+        <Link to="/" className="link">
+          Back to homepage
+        </Link>
       </Button>
     </div>
   );

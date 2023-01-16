@@ -153,16 +153,17 @@ export default class NewsApp extends Component {
                 disabled={false}
                 type="button"
                 className="load-more__btn"
-                onClick={this.fetchArticles}>
+                onClick={this.fetchArticles}
+              >
                 Load More
               </Button>
             )}
 
             {/* No matches check */}
 
-            {!shouldRenderLoadMoreButton && !isLoading && (
-              <p>No matches. Please try again</p>
-            )}
+            {!shouldRenderLoadMoreButton &&
+              !isLoading &&
+              !error && (<p>No matches. Please try again</p>)}
 
             {/* Loading */}
 
