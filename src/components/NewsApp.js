@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
-import axios from 'axios';
+// import axios from 'axios';
 import Button from '@mui/material/Button';
 
 import FilterForm from '../components/FilterForm/FilterForm.tsx';
@@ -8,21 +8,7 @@ import ResultsBar from '../components/ResultsBar/ResultsBar.tsx';
 import Card from './Card/Card.js';
 // import Article from './Article/Article.tsx';
 import Loader from './Loader/Loader.tsx';
-
-axios.defaults.headers.common['Authorization'] =
-  'Bearer 48e54ca0458d4c07a6db808cddd7a419';
-
-const fetchArticlesAPI = ({
-  searchQuery = '',
-  currentPage = 1,
-  pageSize = 6,
-}) => {
-  return axios
-    .get(
-      `https://newsapi.org/v2/everything?q=${searchQuery}&pageSize=${pageSize}&page=${currentPage}`
-    )
-    .then((res) => res.data.articles);
-};
+import fetchArticlesAPI from '../api/fetchArticles.tsx';
 
 export default class NewsApp extends Component {
   state = {
@@ -101,9 +87,6 @@ export default class NewsApp extends Component {
     // );
     const shouldRenderLoadMoreButton =
       filteredArticles.length > 0 && !isLoading;
-    // console.log('normalizedFilteringValue', normalizedFilteringValue);
-    // console.log('filteredArticles', filteredArticles);
-    // console.log('articles', articles);
     return (
       <div className="App">
         <div className="wrap">
@@ -111,7 +94,6 @@ export default class NewsApp extends Component {
             {error && <h1>This is a mistake</h1>}
 
             <FilterForm
-              // onSubmit={this.onChangeQuery}
               value={filteringValue}
               onChange={this.onChangeFilterValue}
             />
@@ -161,9 +143,9 @@ export default class NewsApp extends Component {
 
             {/* No matches check */}
 
-            {!shouldRenderLoadMoreButton &&
-              !isLoading &&
-              !error && (<p>No matches. Please try again</p>)}
+            {!shouldRenderLoadMoreButton && !isLoading && !error && (
+              <p>No matches. Please try again</p>
+            )}
 
             {/* Loading */}
 
