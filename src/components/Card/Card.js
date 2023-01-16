@@ -43,7 +43,8 @@ export default function MediaCard({
         <Typography
           variant="body2"
           color="text.secondary"
-          className="card__date">
+          className="card__date"
+        >
           <span className="card__date--span">
             <CardDateIcon className="card__date--icon" />
           </span>
@@ -53,7 +54,8 @@ export default function MediaCard({
           gutterBottom
           variant="h5"
           component="div"
-          className="card__title">
+          className="card__title"
+        >
           {/* {title && (
             <Highlighter searchWords={filterArr} textToHighlight={title} />
           )} */}
@@ -62,19 +64,20 @@ export default function MediaCard({
         <Typography
           variant="body2"
           color="text.secondary"
-          className="card__description">
+          className="card__description"
+        >
           {description}
         </Typography>
       </CardContent>
       <CardActions>
-        <NavLink to={`${url}`}>
+        <NavLink to="/article">
           <Button color="secondary" disabled={false} className="card__button">
             Read more
             <span className="card__button--span">
               <CardBtnArrow />
             </span>
           </Button>
-        </NavLink> 
+        </NavLink>
         {/* <a
           href={url}
           target="_blank"

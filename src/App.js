@@ -5,12 +5,13 @@ import NewsApp from './components/NewsApp';
 import NewsAppWithoutFilter from './components/NewsAppCopyWithoutFilter';
 import Card from './components/Card/Card';
 import NotFound from './pages/NotFound.tsx';
+import Article from './pages/Article.tsx';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<NewsApp />}></Route>
-      <Route path="article" element={<Card />}></Route>
+      <Route path="article" element={<Article />}></Route>
       {/* <Route path="/onquery" element={<NewsAppWithoutFilter />}></Route> */}
       <Route path="*" element={<NotFound />}></Route>
     </Routes>
