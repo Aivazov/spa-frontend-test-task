@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { ArticleBtnArrow } from '../components/Icons/articleBtnArrow.js';
-import fetchArticlesAPI from '../api/fetchArticles.tsx';
+// import fetchArticlesAPI from '../api/fetchArticles.tsx';
 import Button from '@mui/material/Button';
 import '../App.css';
 import '../components/pages_styles/Article.scss';

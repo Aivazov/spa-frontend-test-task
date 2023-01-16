@@ -70,7 +70,7 @@ export default class NewsApp extends Component {
         })
         .catch((error) => this.setState({ error }))
         .finally(() => this.setState({ isLoading: false }));
-    }, 600);
+    }, 300);
   };
 
   render() {
@@ -129,7 +129,7 @@ export default class NewsApp extends Component {
 
             {/* Load More Button */}
 
-            {shouldRenderLoadMoreButton && (
+            {/* {shouldRenderLoadMoreButton && (
               <Button
                 variant="contained"
                 disabled={false}
@@ -139,7 +139,7 @@ export default class NewsApp extends Component {
               >
                 Load More
               </Button>
-            )}
+            )} */}
 
             {/* No matches check */}
 
