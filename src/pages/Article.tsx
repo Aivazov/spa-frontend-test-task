@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import React from 'react';
 import { ArticleBtnArrow } from '../components/Icons/articleBtnArrow.js';
 // import fetchArticlesAPI from '../api/fetchArticles.tsx';
@@ -7,7 +7,8 @@ import '../App.css';
 import '../components/pages_styles/Article.scss';
 
 export default function Article({ articlesTitle, articlesContent }) {
-  console.log(articlesContent);
+  console.log('article page', articlesContent);
+  const article = useParams();
 
   return (
     <div style={{ margin: 15 }}>

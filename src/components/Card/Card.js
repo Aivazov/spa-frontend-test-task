@@ -70,7 +70,7 @@ export default function MediaCard({
         </Typography>
       </CardContent>
       <CardActions>
-        <NavLink to="/article" className="read-more__link">
+        <NavLink key={url } to="/article" className="read-more__link">
           <Button color="secondary" disabled={false} className="card__button">
             Read more
             <span className="card__button--span">
@@ -78,18 +78,6 @@ export default function MediaCard({
             </span>
           </Button>
         </NavLink>
-        {/* <a
-          href={url}
-          target="_blank"
-          rel="noreferrer"
-          className="read-more__link">
-          <Button color="secondary" disabled={false} className="card__button">
-            Read more
-            <span className="card__button--span">
-              <CardBtnArrow />
-            </span>
-          </Button>
-        </a> */}
       </CardActions>
     </Card>
   );

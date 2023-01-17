@@ -11,9 +11,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<NewsApp />}></Route>
-      <Route path="article" element={<Article />}></Route>
+      <Route path=":article" element={<Article />}></Route>
       {/* <Route path="/onquery" element={<NewsAppWithoutFilter />}></Route> */}
-      <Route path="*" element={<NotFound />}></Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
