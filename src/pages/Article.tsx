@@ -11,17 +11,19 @@ export default function Article({ articlesTitle, articlesContent }) {
   const article = useParams();
 
   return (
-    <div style={{ margin: 15 }}>
-      <h1>{articlesTitle}</h1>
-      <p>{articlesContent}</p>
-      <Button color="secondary" disabled={false} className="card__button">
-        <span style={{ marginRight: 6, display: 'block' }}>
-          <ArticleBtnArrow />
-        </span>
-        <Link to="/" className="link">
-          Back to homepage
-        </Link>
-      </Button>
+    <div className="wrap">
+      <div style={{ margin: 15 }}>
+        <h1>{articlesTitle}</h1>
+        <p>{articlesContent}</p>
+        <Button color="secondary" disabled={false} className="card__button">
+          <span style={{ marginRight: 6, display: 'block' }}>
+            <ArticleBtnArrow />
+          </span>
+          <Link to="/" className="link">
+            Back to homepage
+          </Link>
+        </Button>
+      </div>
     </div>
   );
 }
