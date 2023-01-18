@@ -6,9 +6,10 @@ import Button from '@mui/material/Button';
 import '../App.css';
 import '../components/pages_styles/Article.scss';
 
-export default function Article({ articlesTitle, articlesContent }) {
-  console.log('article page', articlesContent);
-  const article = useParams();
+export default function Article() {
+  // console.log('article page', articlesContent);
+  const { articlesTitle, articlesContent } = useParams();
+  console.log('going to the article page');
 
   return (
     <div className="wrap">

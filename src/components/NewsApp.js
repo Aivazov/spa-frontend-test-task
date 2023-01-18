@@ -8,7 +8,7 @@ import ResultsBar from '../components/ResultsBar/ResultsBar.tsx';
 import Card from './Card/Card.js';
 // import Article from './Article/Article.tsx';
 import Loader from './Loader/Loader.tsx';
-import fetchArticlesAPI from '../api/fetchArticles.tsx';
+import { fetchArticlesAPI } from '../api/fetchArticles.tsx';
 
 export default class NewsApp extends Component {
   state = {
@@ -105,7 +105,8 @@ export default class NewsApp extends Component {
             {/* Rendering Cards */}
 
             <ul className="card__list">
-              {filteredArticles.map(
+              <Card cards={filteredArticles} />
+              {/* {filteredArticles.map(
                 ({
                   title,
                   url,
@@ -124,7 +125,7 @@ export default class NewsApp extends Component {
                     url={url}
                   />
                 )
-              )}
+              )} */}
             </ul>
 
             {/* Load More Button */}
