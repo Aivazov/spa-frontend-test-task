@@ -15,14 +15,14 @@ export default function Article({ articlesTitle, articlesContent }) {
       <div style={{ margin: 15 }}>
         <h1>{articlesTitle}</h1>
         <p>{articlesContent}</p>
-        <Button color="secondary" disabled={false} className="card__button">
-          <span style={{ marginRight: 6, display: 'block' }}>
-            <ArticleBtnArrow />
-          </span>
-          <Link to="/" className="link">
+        <Link to="/" className="link">
+          <Button color="secondary" disabled={false} className="card__button">
+            <span style={{ marginRight: 6, display: 'block' }}>
+              <ArticleBtnArrow />
+            </span>
             Back to homepage
-          </Link>
-        </Button>
+          </Button>
+        </Link>
       </div>
     </div>
   );
