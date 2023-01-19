@@ -4,6 +4,8 @@ import axios from 'axios';
 axios.defaults.headers.common['Authorization'] =
   'Bearer 48e54ca0458d4c07a6db808cddd7a419';
 
+let articles = [];
+
 export const fetchArticlesAPI = ({
   searchQuery = '',
   currentPage = 1,
@@ -13,5 +15,14 @@ export const fetchArticlesAPI = ({
     .get(
       `https://newsapi.org/v2/everything?q=${searchQuery}&pageSize=${pageSize}&page=${currentPage}`
     )
-    .then((res) => res.data.articles);
-}
+    .then((res) => {
+      articles = res.data.articles;
+      console.log('articles', articles);
+
+      return res.data.articles;
+    });
+};
+
+export const getArticleByUrl = (articletUrl) => {
+  return articles.find((article) => article.url === articletUrl);
+};

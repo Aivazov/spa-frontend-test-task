@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
+// import { getArticleByUrl } from '../api/fetchArticles.js';
 import React from 'react';
 import { ArticleBtnArrow } from '../components/Icons/articleBtnArrow.js';
 // import fetchArticlesAPI from '../api/fetchArticles.tsx';
@@ -8,14 +9,15 @@ import '../components/pages_styles/Article.scss';
 
 export default function Article() {
   // console.log('article page', articlesContent);
-  const { articlesTitle, articlesContent } = useParams();
+  const { url } = useParams();
+  // const article = getArticleByUrl(url);
   console.log('going to the article page');
 
   return (
     <div className="wrap">
       <div style={{ margin: 15 }}>
-        <h1>{articlesTitle}</h1>
-        <p>{articlesContent}</p>
+        {/* <h1>{article.title}</h1>
+        <p>{article.content}</p> */}
         <Link to="/" className="link">
           <Button color="secondary" disabled={false} className="card__button">
             <span style={{ marginRight: 6, display: 'block' }}>
