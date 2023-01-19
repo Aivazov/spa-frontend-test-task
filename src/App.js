@@ -9,12 +9,15 @@ import Article from './pages/Article.tsx';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<NewsApp />}></Route>
-      <Route path="article" element={<Article />}></Route>
-      {/* <Route path="/onquery" element={<NewsAppWithoutFilter />}></Route> */}
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <div>
+      <Routes>
+        <Route path="/" element={<NewsApp />}></Route>
+        {/* <Route path="/:article" element={<Article />}></Route> */}
+        <Route path="/:url" element={<Article />}></Route>
+        {/* <Route path="/onquery" element={<NewsAppWithoutFilter />}></Route> */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </div>
   );
 }
 

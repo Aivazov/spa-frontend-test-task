@@ -8,7 +8,7 @@ import ResultsBar from '../components/ResultsBar/ResultsBar.tsx';
 import Card from './Card/Card.js';
 // import Article from './Article/Article.tsx';
 import Loader from './Loader/Loader.tsx';
-import { fetchArticlesAPI } from '../api/fetchArticles.tsx';
+import { fetchArticlesAPI } from '../api/fetchArticles.js';
 
 export default class NewsApp extends Component {
   state = {
@@ -80,7 +80,7 @@ export default class NewsApp extends Component {
       article.title.toLowerCase().includes(normalizedFilteringValue)
     );
 
-    console.log(articles);
+    // console.log(articles);
     // const highlightedFilter = filteredArticles.replace(
     //   /[.*+?^${}()|[\]\\]/g,
     //   '\\$&'

@@ -29,6 +29,7 @@ export default function MediaCard({ cards }) {
       {cards.map(
         ({ title, url, description, publishedAt, urlToImage, content }) => (
           <Card className="card" key={url}>
+            {console.log('url in the card', url)}
             <CardMedia
               sx={{ height: 217 }}
               // image="../components/Icons/NoImage.jpg"
@@ -68,7 +69,8 @@ export default function MediaCard({ cards }) {
               </Typography>
             </CardContent>
             <CardActions>
-              <NavLink key={url} to="/article" className="read-more__link">
+              {/* <Link key={url} to={`${url}`} className="read-more__link"> */}
+              <Link to="/article" className="read-more__link">
                 <Button
                   color="secondary"
                   disabled={false}
@@ -79,7 +81,7 @@ export default function MediaCard({ cards }) {
                     <CardBtnArrow />
                   </span>
                 </Button>
-              </NavLink>
+              </Link>
             </CardActions>
           </Card>
         )
