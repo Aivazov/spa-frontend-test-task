@@ -5,6 +5,7 @@ axios.defaults.headers.common['Authorization'] =
   'Bearer 48e54ca0458d4c07a6db808cddd7a419';
 
 let articles = [];
+let result = null;
 console.log('articles before init', articles);
 // const array = [
 //   {
@@ -49,7 +50,7 @@ export const fetchArticlesAPI = ({
       `https://newsapi.org/v2/everything?q=${searchQuery}&pageSize=${pageSize}&page=${currentPage}`
     )
     .then((res) => {
-      console.log(res);
+      // console.log(res);
       articles = res.data.articles;
       console.log('articles after init:', articles);
 
@@ -59,7 +60,13 @@ export const fetchArticlesAPI = ({
 
 export const getArticleByUrl = (articletUrl) => {
   console.log('articles find', articles);
-  let result = articles.find((article) => article.url === articletUrl);
+  if (articles) {
+    result = articles.find((article) => article.url === articletUrl);
+    return result;
+  }
+  // let result = articles.find((article) => article.url === articletUrl);
   console.log('result', result);
-  return result;
+  // return result;
+  // console.log('articles is:', articles);
+  // console.log('articles is:', articles);
 };

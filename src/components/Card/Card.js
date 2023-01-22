@@ -29,7 +29,7 @@ export default function MediaCard({ cards }) {
       {cards.map(
         ({ title, url, description, publishedAt, urlToImage, content }) => (
           <Card className="card" key={url}>
-            {console.log('url in the card', url)}
+            {/* {console.log('url in the card', url)} */}
             <CardMedia
               sx={{ height: 217 }}
               // image="../components/Icons/NoImage.jpg"
