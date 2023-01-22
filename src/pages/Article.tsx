@@ -11,11 +11,15 @@ import '../components/pages_styles/Article.scss';
 export default function Article() {
   const [articles, setArticles] = useState([]);
   const query: string = 'nasa';
-  const page = 1;
-  const size = 6;
+  const page: number = 1;
+  const size: number = 6;
 
-  fetchArticlesAPI(query, page, size).then((el) => setArticles(el));
-
+  setTimeout(() => {
+    fetchArticlesAPI(query, page, size).then((el) => {
+      console.log(el);
+      // setArticles(el);
+    });
+  }, 300);
   // console.log('article page', articlesContent);
   // const { url } = useParams();
   // const getArticle = getArticleByUrl(url);

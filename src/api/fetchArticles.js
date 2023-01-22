@@ -41,7 +41,7 @@ console.log('articles before init', articles);
 // ];
 
 export const fetchArticlesAPI = ({
-  searchQuery = '',
+  searchQuery = 'nasa',
   currentPage = 1,
   pageSize = 6,
 }) => {
@@ -52,7 +52,7 @@ export const fetchArticlesAPI = ({
     .then((res) => {
       // console.log(res);
       articles = res.data.articles;
-      console.log('articles after init:', articles);
+      // console.log('articles after init:', articles);
 
       return res.data.articles;
     });
