@@ -9,30 +9,33 @@ import '../App.css';
 import '../components/pages_styles/Article.scss';
 
 export default function Article() {
-  const [articles, setArticles] = useState([]);
+  // const [articles2, setArticles2] = useState([]);
+  let array = [];
   const query: string = 'nasa';
   const page: number = 1;
   const size: number = 6;
 
   setTimeout(() => {
     fetchArticlesAPI(query, page, size).then((el) => {
-      console.log(el);
       // setArticles(el);
+      array = el;
     });
+
+    console.log('articles in the Article.tsx', array);
   }, 300);
   // console.log('article page', articlesContent);
   // const { url } = useParams();
   // const getArticle = getArticleByUrl(url);
   // console.log('going to the article page');
   // console.log('url: ', url);
-  console.log('get article: ', articles);
+  // console.log('get article: ', articles);
   // console.log('cards', cards);
 
   return (
     <div className="wrap">
       <div style={{ margin: 15 }}>
-        {/* {getArticle &&
-          getArticle.map((el) => (
+        {/* {array &&
+          array.map((el) => (
             <>
               <h1>{el.title}</h1>
               <p>{el.content}</p>
@@ -40,7 +43,7 @@ export default function Article() {
           ))} */}
         <p>
           Hello
-          {/* {cards.map(({ title }) => (
+          {/* {array.map(({ title }) => (
             <p>{title}</p>
           ))} */}
         </p>
