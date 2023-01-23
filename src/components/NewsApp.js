@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 // import axios from 'axios';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 
 import FilterForm from '../components/FilterForm/FilterForm.tsx';
 import ResultsBar from '../components/ResultsBar/ResultsBar.tsx';
@@ -33,20 +33,20 @@ export default class NewsApp extends Component {
     // }
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  // componentDidUpdate(prevProps, prevState) {
     // if (prevState.searchQuery !== this.state.searchQuery) {
     // this.fetchArticles();
     // }
-  }
+  // }
 
-  onChangeQuery = (query) => {
-    this.setState({
-      searchQuery: query,
-      currentPage: 1,
-      articles: [],
-      error: null,
-    });
-  };
+  // onChangeQuery = (query) => {
+  //   this.setState({
+  //     searchQuery: query,
+  //     currentPage: 1,
+  //     articles: [],
+  //     error: null,
+  //   });
+  // };
 
   onChangeFilterValue = (e) => {
     this.setState({ filteringValue: e.currentTarget.value });
@@ -60,16 +60,18 @@ export default class NewsApp extends Component {
     this.setState({ isLoading: true });
 
     setTimeout(() => {
-      fetchArticlesAPI(options)
-        .then((articles) => {
-          this.setState((prevState) => ({
-            // articles: [...prevState.articles, ...articles],
-            articles: articles,
-            currentPage: prevState.currentPage + 1,
-          }));
-        })
-        .catch((error) => this.setState({ error }))
-        .finally(() => this.setState({ isLoading: false }));
+      // setInterval(() => {
+        fetchArticlesAPI(options)
+          .then((articles) => {
+            this.setState((prevState) => ({
+              // articles: [...prevState.articles, ...articles],
+              articles: articles,
+              currentPage: prevState.currentPage + 1,
+            }));
+          })
+          .catch((error) => this.setState({ error }))
+          .finally(() => this.setState({ isLoading: false }));
+      // }, 5000);
     }, 300);
   };
 

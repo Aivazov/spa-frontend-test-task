@@ -1,34 +1,39 @@
 import { Link, useParams } from 'react-router-dom';
 import { getArticleByUrl } from '../api/fetchArticles.js';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArticleBtnArrow } from '../components/Icons/articleBtnArrow.js';
 import cards from '../components/Card/Card';
-import { fetchArticlesAPI } from '../api/fetchArticles.js';
+// import { fetchArticlesAPI } from '../api/fetchArticles.js';
 import Button from '@mui/material/Button';
 import '../App.css';
 import '../components/pages_styles/Article.scss';
+// import { setInterval } from 'timers/promises';
+
 
 export default function Article() {
-  // const [articles2, setArticles2] = useState([]);
+  const [articles2, setArticles2] = useState([]);
   let array = [];
   const query: string = 'nasa';
   const page: number = 1;
   const size: number = 6;
 
-  setTimeout(() => {
-    fetchArticlesAPI(query, page, size).then((el) => {
-      // setArticles(el);
-      array = el;
-    });
+  useEffect(() => {
+    // setTimeout(() => {
+    //   fetchArticlesAPI(query, page, size).then((el) => {
+    //     setArticles2(el);
+    //     // array = el;
+    //   });
 
-    console.log('articles in the Article.tsx', array);
-  }, 300);
+    //   console.log('articles in the Article.tsx', array);
+    // }, 300);
+  }, []);
+
   // console.log('article page', articlesContent);
   // const { url } = useParams();
   // const getArticle = getArticleByUrl(url);
   // console.log('going to the article page');
   // console.log('url: ', url);
-  // console.log('get article: ', articles);
+  // console.log('get article: ', articles2);
   // console.log('cards', cards);
 
   return (
