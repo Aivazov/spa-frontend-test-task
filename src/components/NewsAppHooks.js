@@ -8,10 +8,10 @@ import ResultsBar from '../components/ResultsBar/ResultsBar.tsx';
 import Card from './Card/Card.js';
 // import Article from './Article/Article.tsx';
 import Loader from './Loader/Loader.tsx';
-import { fetchArticlesAPI } from '../api/fetchArticles.js';
+// import { fetchArticlesAPI } from '../api/fetchArticles.js';
 
 export default function NewsLayout({ items }) {
-  console.log('items', items);
+  // console.log('items', items);
   const [articles, setArticles] = useState([]);
   const [filteringValue, setFilteringValue] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -68,7 +68,7 @@ export default function NewsLayout({ items }) {
     <div className="App">
       <div className="wrap">
         <div style={{ margin: 15 }}>
-          {error && <h1>This is a mistake</h1>}
+          {error && <h1>This is a mistake {error.message}</h1>}
 
           <FilterForm value={filteringValue} onChange={onChangeFilterValue} />
           <p>
@@ -116,15 +116,15 @@ export default function NewsLayout({ items }) {
               </Button>
             )} */}
 
+          {/* Loading */}
+
+          {isLoading && <Loader />}
+
           {/* No matches check */}
 
           {!shouldRenderLoadMoreButton && !isLoading && !error && (
             <p>No matches. Please try again</p>
           )}
-
-          {/* Loading */}
-
-          {isLoading && <Loader />}
         </div>
       </div>
       {/* <div className="wrap">
