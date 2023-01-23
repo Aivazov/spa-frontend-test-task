@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { getArticleByUrl } from '../api/fetchArticles.js';
 import React, { useState, useEffect } from 'react';
 import { ArticleBtnArrow } from '../components/Icons/articleBtnArrow.js';
+import { getProductById } from '../api/fakeAPI.tsx';
 import cards from '../components/Card/Card';
 // import { fetchArticlesAPI } from '../api/fetchArticles.js';
 import Button from '@mui/material/Button';
@@ -9,24 +10,27 @@ import '../App.css';
 import '../components/pages_styles/Article.scss';
 // import { setInterval } from 'timers/promises';
 
-
 export default function Article() {
-  const [articles2, setArticles2] = useState([]);
-  let array = [];
-  const query: string = 'nasa';
-  const page: number = 1;
-  const size: number = 6;
+  // const [articles2, setArticles2] = useState([]);
 
-  useEffect(() => {
-    // setTimeout(() => {
-    //   fetchArticlesAPI(query, page, size).then((el) => {
-    //     setArticles2(el);
-    //     // array = el;
-    //   });
+  const { id } = useParams();
+  const article = getProductById(id);
+  // let array = [];
+  // const query: string = 'nasa';
+  // const page: number = 1;
+  // const size: number = 6;
 
-    //   console.log('articles in the Article.tsx', array);
-    // }, 300);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setArticles2(items)
+  //   fetchArticlesAPI(query, page, size).then((el) => {
+  //     setArticles2(el);
+  //     // array = el;
+  //   });
+
+  //   console.log('articles in the Article.tsx', array);
+  //   }, 300);
+  // }, []);
 
   // console.log('article page', articlesContent);
   // const { url } = useParams();
@@ -39,6 +43,15 @@ export default function Article() {
   return (
     <div className="wrap">
       <div style={{ margin: 15 }}>
+        <div>
+          <img src={article.urlToImage} />
+        </div>
+        <div>
+          <p>{article.title}</p>
+        </div>
+        <div>
+          <p>{article.description}</p>
+        </div>
         {/* {array &&
           array.map((el) => (
             <>
@@ -46,12 +59,12 @@ export default function Article() {
               <p>{el.content}</p>
             </>
           ))} */}
-        <p>
+        {/* <p>
           Hello
-          {/* {array.map(({ title }) => (
-            <p>{title}</p>
-          ))} */}
-        </p>
+          {articles2.map(({ title }) => (
+            <p style={{ display: 'block' }}>{title}</p>
+          ))}
+        </p> */}
         <Link to="/" className="link">
           <Button color="secondary" disabled={false} className="card__button">
             <span style={{ marginRight: 6, display: 'block' }}>

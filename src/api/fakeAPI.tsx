@@ -69,7 +69,7 @@ const articles = [
       'Pellentesque efficitur iaculis quam at posuere. In vel dolor ante. Etiam quis dolor suscipit, placerat augue a, gravida sem. Mauris fringilla suscipit viverra. Nullam elit tellus, imperdiet rutrum felis eget, congue volutpat augue. Praesent interdum magna ipsum, et dictum ex feugiat sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lacus urna, dignissim sit amet sagittis nec, tincidunt at felis. Donec pharetra tincidunt mi, in ultricies erat molestie ac. Proin ut justo sed orci euismod pretium. Vestibulum ac interdum lectus. Donec blandit massa id lectus maximus hendrerit. Sed a tincidunt lectus, nec tempus orci.',
     publishedAt: '2022-02-28T19:02:45Z',
     title:
-      'Donec lacinia turpis vel turpis commodo iaculis. Curabitur a risus fringilla purus finibus auctor. Aenean ornare arcu a euismod condimentum. Proin libero sapien, cursus at pretium id, efficitur a lacus',
+      'Donec lacinia turpis vel turpis commodo iaculis. Curabitur a risus fringilla purus finibus auctor.',
     url: '"https://www.engadget.com/nasa-apollo-7-astronaut-walter-cunningham-obituary-171522792.html"',
     urlToImage:
       'https://s.yimg.com/uu/api/res/1.2/nai3zxlaoUaCm97xiY3aCw--~B/Zmk9ZmlsbDtoPTUzNDt3PTg3NTthcHBpZD15dGFjaHlvbg--/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2022-12/765fbb40-7650-11ed-a27d-7784adf0dc18.cf.webp',
@@ -79,3 +79,7 @@ const articles = [
 export function getArticles() {
   return articles;
 }
+
+export const getProductById = (articleId) => {
+  return articles.find((article) => article.id === articleId);
+};

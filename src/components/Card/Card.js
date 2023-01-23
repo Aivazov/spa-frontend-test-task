@@ -27,8 +27,8 @@ export default function MediaCard({ cards }) {
   return (
     <>
       {cards.map(
-        ({ title, url, description, publishedAt, urlToImage, content }) => (
-          <Card className="card" key={url}>
+        ({ title, url, description, publishedAt, urlToImage, content, id }) => (
+          <Card className="card" key={id}>
             {/* {console.log('url in the card', url)} */}
             <CardMedia
               sx={{ height: 217 }}
@@ -36,7 +36,7 @@ export default function MediaCard({ cards }) {
               image={
                 urlToImage ? urlToImage : '../components/Icons/NoImage.jpg'
               }
-              title={title}
+              // title={title}
             />
             <CardContent className="card__body">
               <Typography
@@ -69,8 +69,8 @@ export default function MediaCard({ cards }) {
               </Typography>
             </CardContent>
             <CardActions>
-              {/* <Link key={id} to={`${id}`} className="read-more__link"> */}
-              <Link to="/article" className="read-more__link">
+              <Link key={id} to={`${id}`} className="read-more__link">
+              {/* <Link to="/article" className="read-more__link"> */}
                 <Button
                   color="secondary"
                   disabled={false}
