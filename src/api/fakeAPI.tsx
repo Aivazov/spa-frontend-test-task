@@ -80,6 +80,6 @@ export function getArticles() {
   return articles;
 }
 
-export const getProductById = (articleId) => {
+export const getProductById = (articleId: string) => {
   return articles.find((article) => article.id === articleId);
 };
