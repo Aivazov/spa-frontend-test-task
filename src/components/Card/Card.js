@@ -69,7 +69,7 @@ export default function MediaCard({ cards }) {
               </Typography>
             </CardContent>
             <CardActions>
-              {/* <Link key={url} to={`${url}`} className="read-more__link"> */}
+              {/* <Link key={id} to={`${id}`} className="read-more__link"> */}
               <Link to="/article" className="read-more__link">
                 <Button
                   color="secondary"

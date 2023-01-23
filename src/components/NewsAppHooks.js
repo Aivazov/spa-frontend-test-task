@@ -10,7 +10,8 @@ import Card from './Card/Card.js';
 import Loader from './Loader/Loader.tsx';
 import { fetchArticlesAPI } from '../api/fetchArticles.js';
 
-export default function NewsLayout() {
+export default function NewsLayout({ items }) {
+  console.log('items', items);
   const [articles, setArticles] = useState([]);
   const [filteringValue, setFilteringValue] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -22,14 +23,14 @@ export default function NewsLayout() {
     fetchArticles();
   }, []);
 
-  // const onChangeQuery = (query) => {
-  useEffect(() => {
-    setArticles([]);
-    setCurrentPage(1);
-    // setSerchQuery(query);
-    setError(null);
-  }, []);
-  // };
+  const useOnChangeQuery = (query) => {
+    useEffect(() => {
+      setArticles([]);
+      setCurrentPage(1);
+      setSerchQuery(query);
+      setError(null);
+    }, []);
+  };
 
   const onChangeFilterValue = (e) => {
     setFilteringValue(e.currentTarget.value);
@@ -39,18 +40,22 @@ export default function NewsLayout() {
     const options = { searchQuery, currentPage };
 
     setIsLoading(true);
-
     setTimeout(() => {
-      // setInterval(() => {
-      fetchArticlesAPI(options)
-        .then((articles) => {
-          setArticles(articles);
-          setCurrentPage(currentPage + 1);
-        })
-        .catch((error) => setError(error))
-        .finally(() => setIsLoading(false));
-      // }, 5000);
+      setArticles(items);
+
+      setIsLoading(false);
     }, 300);
+    // setTimeout(() => {
+    //   // setInterval(() => {
+    //   fetchArticlesAPI(options)
+    //     .then((articles) => {
+    //       setArticles(articles);
+    //       setCurrentPage(currentPage + 1);
+    //     })
+    //     .catch((error) => setError(error))
+    //     .finally(() => setIsLoading(false));
+    //   // }, 5000);
+    // }, 300);
   };
 
   const normalizedFilteringValue = filteringValue.toLowerCase();
