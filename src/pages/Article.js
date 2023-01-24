@@ -8,7 +8,6 @@ import { getProductById } from '../api/fakeAPI';
 import Button from '@mui/material/Button';
 import '../App.css';
 import './Article.css';
-import '../components/pages_styles/Article.scss';
 // import { setInterval } from 'timers/promises';
 
 export default function Article() {
@@ -43,43 +42,34 @@ export default function Article() {
 
   return (
     <div>
-      <div className="article__bg--img">
+      <div className="article__container">
         <img
           src={article.urlToImage}
           alt=""
           className="article__image"
           style={{ backgroundPosition: 'center', height: 245 }}
         />
-      </div>
-      <div className="wrap article__body">
-        <div className='container'>
-          <div>
-            <h1 className="article__title">{article.title}</h1>
+        <div className="wrap article__body">
+          <div className="container">
+            <div>
+              <h1 className="article__title">{article.title}</h1>
+            </div>
+            <div className="wrap">
+              <p className="article__content">{article.description}</p>
+            </div>
+            <Link to="/" className="link">
+              <Button
+                color="secondary"
+                disabled={false}
+                className="card__button"
+              >
+                <span style={{ marginRight: 6, display: 'block' }}>
+                  <ArticleBtnArrow />
+                </span>
+                Back to homepage
+              </Button>
+            </Link>
           </div>
-          <div className='wrap'>
-            <p className="article__content">{article.description}</p>
-          </div>
-          {/* {array &&
-          array.map((el) => (
-            <>
-              <h1>{el.title}</h1>
-              <p>{el.content}</p>
-            </>
-          ))} */}
-          {/* <p>
-          Hello
-          {articles2.map(({ title }) => (
-            <p style={{ display: 'block' }}>{title}</p>
-          ))}
-        </p> */}
-          <Link to="/" className="link">
-            <Button color="secondary" disabled={false} className="card__button">
-              <span style={{ marginRight: 6, display: 'block' }}>
-                <ArticleBtnArrow />
-              </span>
-              Back to homepage
-            </Button>
-          </Link>
         </div>
       </div>
     </div>
