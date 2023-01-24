@@ -52,7 +52,7 @@ export default function Article() {
         />
       </div>
       <div className="wrap article__body">
-        <div style={{ margin: 15 }}>
+        <div className='container'>
           <div>
             <h1 className="article__title">{article.title}</h1>
           </div>
