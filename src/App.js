@@ -4,11 +4,11 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 // import NewsApp from './components/NewsApp';
 import NewsAppHooks from './components/NewsAppHooks';
-import { getArticles } from './api/fakeAPI.tsx';
+import { getArticles } from './api/fakeAPI';
 // import NewsAppWithoutFilter from './components/NewsAppCopyWithoutFilter';
 // import Card from './components/Card/Card';
 import NotFound from './pages/NotFound.tsx';
-import Article from './pages/Article.tsx';
+import Article from './pages/Article.js';
 
 const articles = getArticles();
 console.log('articles', articles);

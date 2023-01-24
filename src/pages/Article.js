@@ -2,11 +2,12 @@ import { Link, useParams } from 'react-router-dom';
 // import { getArticleByUrl } from '../api/fetchArticles.js';
 // import React, { useState, useEffect } from 'react';
 import { ArticleBtnArrow } from '../components/Icons/articleBtnArrow.js';
-import { getProductById } from '../api/fakeAPI.tsx';
+import { getProductById } from '../api/fakeAPI';
 // import cards from '../components/Card/Card';
 // import { fetchArticlesAPI } from '../api/fetchArticles.js';
 import Button from '@mui/material/Button';
 import '../App.css';
+// import './';
 import '../components/pages_styles/Article.scss';
 // import { setInterval } from 'timers/promises';
 
@@ -42,7 +43,8 @@ export default function Article() {
 
   return (
     <div className="wrap">
-      <img src={article.urlToImage} alt="" className="article__image" />
+      <div className="article__bg--img"></div>
+      {/* <img src={article.urlToImage} alt="" className="article__image" /> */}
 
       <div style={{ margin: 15 }}>
         <div>
