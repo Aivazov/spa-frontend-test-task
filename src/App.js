@@ -12,23 +12,24 @@ import Article from './pages/Article.js';
 
 const articles = getArticles();
 console.log('articles', articles);
-// const fetchArticlesAPI = ({
-//   searchQuery = 'nasa',
-//   currentPage = 1,
-//   pageSize = 6,
-// }) => {
-//   return axios
-//     .get(
-//       `https://newsapi.org/v2/everything?q=${searchQuery}&pageSize=${pageSize}&page=${currentPage}`
-//     )
-//     .then((res) => {
-//       // console.log(res);
-//       // articles = res.data.articles;
-//       // console.log('articles after init:', articles);
 
-//       return res.data.articles;
-//     });
-// };
+const fetchArticlesAPI = ({
+  searchQuery = 'nasa',
+  currentPage = 1,
+  pageSize = 6,
+}) => {
+  return axios
+    .get(
+      `https://newsapi.org/v2/everything?q=${searchQuery}&pageSize=${pageSize}&page=${currentPage}`
+    )
+    .then((res) => {
+      // console.log(res);
+      // articles = res.data.articles;
+      // console.log('articles after init:', articles);
+
+      return res.data.articles;
+    });
+};
 
 function App() {
   // const [articles, setArticles] = useState([]);
