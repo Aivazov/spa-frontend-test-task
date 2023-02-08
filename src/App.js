@@ -13,6 +13,9 @@ import Article from './pages/Article.js';
 // const articles = getArticles();
 // console.log('articles', articles);
 
+axios.defaults.headers.common['Authorization'] =
+  'Bearer 48e54ca0458d4c07a6db808cddd7a419';
+
 const fetchArticlesAPI = ({
   searchQuery = 'nasa',
   currentPage = 1,
@@ -38,18 +41,21 @@ function App() {
   const size = 6;
 
   // useEffect(() => {
-  setTimeout(() => {
-    fetchArticlesAPI(query, page, size).then((article) => {
-      setArticles(article);
-      console.log('articles in App:', articles);
-    });
-  }, 5000);
+  // setTimeout(() => {
+  //   fetchArticlesAPI(query, page, size).then((article) => {
+  //     setArticles(article);
+  //     console.log('articles in App:', articles);
+  //   });
+  // }, 5000);
   // }, [articles]);
 
   return (
     <div>
       <Routes>
-        <Route path="/" element={<NewsAppHooks items={articles} />}></Route>
+        <Route
+          path="/"
+          element={<NewsAppHooks items={fetchArticlesAPI} />}
+        ></Route>
         {/* <Route path="/" element={<NewsApp items={articles} />}></Route> */}
         {/* <Route path="/:article" element={<Article />}></Route> */}
         <Route path="/:idx" element={<Article items={articles} />}></Route>

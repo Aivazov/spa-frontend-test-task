@@ -20,9 +20,10 @@ export default function NewsLayout({ items }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setArticles(items);
-    console.log('articles in NewsAppHooks', articles);
-  }, [articles, items]);
+    if (!items) return;
+    fetchArticles();
+    // console.log('articles in NewsAppHooks', articles);
+  }, [items]);
 
   const useOnChangeQuery = (query) => {
     useEffect(() => {
@@ -37,27 +38,25 @@ export default function NewsLayout({ items }) {
     setFilteringValue(e.currentTarget.value);
   };
 
-  // const fetchArticles = () => {
-  //   const options = { searchQuery, currentPage };
+  const fetchArticles = () => {
+    const options = { searchQuery, currentPage };
 
-  //   setIsLoading(true);
+    setIsLoading(true);
   //   setTimeout(() => {
   //     // setArticles(items);
   //     console.log('articles in NewsAppHooks', articles);
   //     setIsLoading(false);
   //   }, 300);
-  // setTimeout(() => {
-  //   // setInterval(() => {
-  //   fetchArticlesAPI(options)
-  //     .then((articles) => {
-  //       setArticles(articles);
-  //       setCurrentPage(currentPage + 1);
-  //     })
-  //     .catch((error) => setError(error))
-  //     .finally(() => setIsLoading(false));
-  //   // }, 5000);
-  // }, 300);
-  // };
+  setTimeout(() => {
+    items(options)
+      .then((articles) => {
+        setArticles(articles);
+        setCurrentPage(currentPage + 1);
+      })
+      .catch((error) => setError(error))
+      .finally(() => setIsLoading(false));
+  }, 300);
+  };
 
   const normalizedFilteringValue = filteringValue.toLowerCase();
   const filteredArticles = articles.filter((article) =>
