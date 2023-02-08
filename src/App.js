@@ -32,20 +32,20 @@ const fetchArticlesAPI = ({
 };
 
 function App() {
-  // const [articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState([]);
   const query = 'nasa';
   const page = 1;
   const size = 6;
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     fetchArticlesAPI(query, page, size).then((article) => {
-  //       setArticles(article);
-  //     });
+  useEffect(() => {
+    setTimeout(() => {
+      fetchArticlesAPI(query, page, size).then((article) => {
+        setArticles(article);
+      });
 
-  //     console.log('articles in the Article.tsx', articles);
-  //   }, 300);
-  // }, [articles]);
+      console.log('articles in the Article.tsx', articles);
+    }, 1000);
+  }, [articles]);
 
   return (
     <div>
