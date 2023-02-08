@@ -53,7 +53,7 @@ function App() {
         <Route path="/" element={<NewsAppHooks items={articles} />}></Route>
         {/* <Route path="/" element={<NewsApp items={articles} />}></Route> */}
         {/* <Route path="/:article" element={<Article />}></Route> */}
-        <Route path="/:id" element={<Article items={articles} />}></Route>
+        <Route path="/:idx" element={<Article items={articles} />}></Route>
         {/* <Route path="/onquery" element={<NewsAppWithoutFilter />}></Route> */}
         <Route path="*" element={<NotFound />} />
       </Routes>

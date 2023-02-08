@@ -27,8 +27,11 @@ export default function MediaCard({ cards }) {
   return (
     <>
       {cards.map(
-        ({ title, url, description, publishedAt, urlToImage, content, id }) => (
-          <Card className="card" key={id}>
+        (
+          { title, url, description, publishedAt, urlToImage, content, id },
+          idx
+        ) => (
+          <Card className="card" key={idx}>
             {/* {console.log('url in the card', url)} */}
             <CardMedia
               sx={{ height: 217 }}
@@ -69,8 +72,8 @@ export default function MediaCard({ cards }) {
               </Typography>
             </CardContent>
             <CardActions>
-              <Link key={id} to={`${id}`} className="read-more__link">
-              {/* <Link to="/article" className="read-more__link"> */}
+              <Link key={idx} to={`${idx}`} className="read-more__link">
+                {/* <Link to="/article" className="read-more__link"> */}
                 <Button
                   color="secondary"
                   disabled={false}

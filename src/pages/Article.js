@@ -2,19 +2,19 @@ import { Link, useParams } from 'react-router-dom';
 // import { getArticleByUrl } from '../api/fetchArticles.js';
 // import React, { useState, useEffect } from 'react';
 import { ArticleBtnArrow } from '../components/Icons/articleBtnArrow.js';
-import { getProductById } from '../api/fakeAPI';
+// import { getProductById } from '../api/fakeAPI';
 // import cards from '../components/Card/Card';
-// import { fetchArticlesAPI } from '../api/fetchArticles.js';
+import { fetchArticlesAPI } from '../api/fetchArticles.js';
 import Button from '@mui/material/Button';
 import '../App.css';
 import './Article.css';
-// import { setInterval } from 'timers/promises';
 
 export default function Article() {
   // const [articles2, setArticles2] = useState([]);
 
-  const { id } = useParams();
-  const article = getProductById(id);
+  const { idx } = useParams();
+  const article = fetchArticlesAPI(idx);
+  // const article = getProductById(id);
   // let array = [];
   // const query: string = 'nasa';
   // const page: number = 1;
