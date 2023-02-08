@@ -1,19 +1,20 @@
 import { Link, useParams } from 'react-router-dom';
 // import { getArticleByUrl } from '../api/fetchArticles.js';
-// import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArticleBtnArrow } from '../components/Icons/articleBtnArrow.js';
 // import { getProductById } from '../api/fakeAPI';
 // import cards from '../components/Card/Card';
-import { fetchArticlesAPI } from '../api/fetchArticles.js';
+// import { fetchArticlesAPI } from '../api/fetchArticles.js';
 import Button from '@mui/material/Button';
 import '../App.css';
 import './Article.css';
 
-export default function Article() {
-  // const [articles2, setArticles2] = useState([]);
+export default function Article({ items }) {
+  const [articles2, setArticles2] = useState([]);
 
   const { idx } = useParams();
-  const article = fetchArticlesAPI(idx);
+  setArticles2(items);
+  // const article = fetchArticlesAPI(idx);
   // const article = getProductById(id);
   // let array = [];
   // const query: string = 'nasa';
@@ -44,7 +45,7 @@ export default function Article() {
     <div>
       <div className="article__container">
         <img
-          src={article.urlToImage}
+          src={articles2.urlToImage}
           alt=""
           className="article__image"
           style={{ backgroundPosition: 'center', height: 245 }}
@@ -52,10 +53,10 @@ export default function Article() {
         <div className="wrap article__body">
           <div className="container">
             <div>
-              <h1 className="article__title">{article.title}</h1>
+              <h1 className="article__title">{articles2.title}</h1>
             </div>
             <div className="wrap">
-              <p className="article__content">{article.description}</p>
+              <p className="article__content">{articles2.description}</p>
             </div>
             <Link to="/" className="link">
               <Button

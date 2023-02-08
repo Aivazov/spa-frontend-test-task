@@ -4,14 +4,14 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 // import NewsApp from './components/NewsApp';
 import NewsAppHooks from './components/NewsAppHooks';
-import { getArticles } from './api/fakeAPI';
+// import { getArticles } from './api/fakeAPI';
 // import NewsAppWithoutFilter from './components/NewsAppCopyWithoutFilter';
 // import Card from './components/Card/Card';
 import NotFound from './pages/NotFound.tsx';
 import Article from './pages/Article.js';
 
-const articles = getArticles();
-console.log('articles', articles);
+// const articles = getArticles();
+// console.log('articles', articles);
 
 const fetchArticlesAPI = ({
   searchQuery = 'nasa',
@@ -25,7 +25,7 @@ const fetchArticlesAPI = ({
     .then((res) => {
       // console.log(res);
       // articles = res.data.articles;
-      // console.log('articles after init:', articles);
+      // console.log('articles in App:', res.data.articles);
 
       return res.data.articles;
     });
@@ -37,15 +37,14 @@ function App() {
   const page = 1;
   const size = 6;
 
-  useEffect(() => {
-    setTimeout(() => {
-      fetchArticlesAPI(query, page, size).then((article) => {
-        setArticles(article);
-      });
-
-      console.log('articles in the Article.tsx', articles);
-    }, 1000);
-  }, [articles]);
+  // useEffect(() => {
+  setTimeout(() => {
+    fetchArticlesAPI(query, page, size).then((article) => {
+      setArticles(article);
+      console.log('articles in App:', articles);
+    });
+  }, 5000);
+  // }, [articles]);
 
   return (
     <div>
