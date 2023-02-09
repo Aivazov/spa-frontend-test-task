@@ -1,49 +1,14 @@
 import { Link, useParams } from 'react-router-dom';
-// import { getArticleByUrl } from '../api/fetchArticles.js';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { ArticleBtnArrow } from '../components/Icons/articleBtnArrow.js';
-// import { getProductById } from '../api/fakeAPI';
-// import cards from '../components/Card/Card';
-import { fetchArticlesAPI, getArticleById } from '../api/fetchArticles.js';
+import { getArticleById } from '../api/fetchArticles.js';
 import Button from '@mui/material/Button';
 import '../App.css';
 import './Article.css';
 
-export default function Article({ items, getArticle }) {
-  // const [articles2, setArticles2] = useState([]);
-
+export default function Article() {
   const { idx } = useParams();
-  // setArticles2(items);
-  // const article = fetchArticlesAPI(idx);
-
-  console.log('idx', idx);
-  console.log('getArticleById(idx)', getArticleById(idx));
   const article = getArticleById(idx);
-  console.log('article in Article.js', article);
-  // let array = [];
-  // const query: string = 'nasa';
-  // const page: number = 1;
-  // const size: number = 6;
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setArticles2(items)
-  //   fetchArticlesAPI(query, page, size).then((el) => {
-  //     setArticles2(el);
-  //     // array = el;
-  //   });
-
-  //   console.log('articles in the Article.tsx', array);
-  //   }, 300);
-  // }, []);
-
-  // console.log('article page', articlesContent);
-  // const { url } = useParams();
-  // const getArticle = getArticleByUrl(url);
-  // console.log('going to the article page');
-  // console.log('url: ', url);
-  // console.log('get article: ', articles2);
-  // console.log('cards', cards);
 
   return (
     <div>

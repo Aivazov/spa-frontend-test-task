@@ -7,9 +7,9 @@ import './FilterForm.scss';
 export default function FilterForm({ onSubmit, value, onChange }) {
   const [searchRequest, setSearchRequest] = useState('');
 
-  const handleNameChange = (event) => {
-    setSearchRequest(event.target.value.toLowerCase());
-  };
+  // const handleNameChange = (event) => {
+  //   setSearchRequest(event.target.value.toLowerCase());
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
-// import axios from 'axios';
-// import Button from '@mui/material/Button';
 
 import FilterForm from '../components/FilterForm/FilterForm.tsx';
 import ResultsBar from '../components/ResultsBar/ResultsBar.tsx';
 import Card from './Card/Card.js';
-// import Article from './Article/Article.tsx';
 import Loader from './Loader/Loader.tsx';
 import { fetchArticlesAPI } from '../api/fetchArticles.js';
 
-export default function NewsLayout({ items }) {
-  // console.log('items', items);
+export default function NewsLayout() {
   const [articles, setArticles] = useState([]);
   const [filteringValue, setFilteringValue] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -21,19 +17,18 @@ export default function NewsLayout({ items }) {
 
   useEffect(() => {
     if (!fetchArticlesAPI) return;
-    // if (!items) return;
     fetchArticles();
     // console.log('articles in NewsAppHooks', articles);
   }, [fetchArticlesAPI]);
 
-  const useOnChangeQuery = (query) => {
-    useEffect(() => {
-      setArticles([]);
-      setCurrentPage(1);
-      setSerchQuery(query);
-      setError(null);
-    }, []);
-  };
+  // const useOnChangeQuery = (query) => {
+  //   useEffect(() => {
+  //     setArticles([]);
+  //     setCurrentPage(1);
+  //     setSerchQuery(query);
+  //     setError(null);
+  //   }, []);
+  // };
 
   const onChangeFilterValue = (e) => {
     setFilteringValue(e.currentTarget.value);
@@ -43,21 +38,16 @@ export default function NewsLayout({ items }) {
     const options = { searchQuery, currentPage };
 
     setIsLoading(true);
-  //   setTimeout(() => {
-  //     // setArticles(items);
-  //     console.log('articles in NewsAppHooks', articles);
-  //     setIsLoading(false);
-  //   }, 300);
-  setTimeout(() => {
-    fetchArticlesAPI(options)
-      // items(options)
-      .then((articles) => {
-        setArticles(articles);
-        setCurrentPage(currentPage + 1);
-      })
-      .catch((error) => setError(error))
-      .finally(() => setIsLoading(false));
-  }, 300);
+
+    setTimeout(() => {
+      fetchArticlesAPI(options)
+        .then((articles) => {
+          setArticles(articles);
+          setCurrentPage(currentPage + 1);
+        })
+        .catch((error) => setError(error))
+        .finally(() => setIsLoading(false));
+    }, 300);
   };
 
   const normalizedFilteringValue = filteringValue.toLowerCase();
@@ -82,26 +72,6 @@ export default function NewsLayout({ items }) {
 
           <ul className="card__list">
             <Card cards={filteredArticles} />
-            {/* {filteredArticles.map(
-                ({
-                  title,
-                  url,
-                  description,
-                  publishedAt,
-                  urlToImage,
-                  content,
-                }) => (
-                  <Card
-                    filterArr={filteredArticles}
-                    key={url}
-                    title={title}
-                    description={description}
-                    date={publishedAt}
-                    image={urlToImage}
-                    url={url}
-                  />
-                )
-              )} */}
           </ul>
 
           {/* Load More Button */}
@@ -129,15 +99,6 @@ export default function NewsLayout({ items }) {
           )}
         </div>
       </div>
-      {/* <div className="wrap">
-          {filteredArticles.map(({ title, content, url }) => (
-            <Article
-              key={url}
-              articlesTitle={title}
-              articlesContent={content}
-            />
-          ))}
-        </div> */}
     </div>
   );
 }
