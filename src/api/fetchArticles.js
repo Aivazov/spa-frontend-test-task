@@ -25,9 +25,7 @@ export const fetchArticlesAPI = ({
         const newEl = { ...el, idx };
         newArr.push(newEl);
       });
-      console.log('newArr', newArr);
       articles = newArr;
-      console.log('articles', articles);
 
       return articles;
     });

@@ -7,7 +7,7 @@ import Card from './Card/Card.js';
 import Loader from './Loader/Loader.tsx';
 import { fetchArticlesAPI } from '../api/fetchArticles.js';
 
-export default function NewsLayout() {
+export default function Main() {
   const [articles, setArticles] = useState([]);
   const [filteringValue, setFilteringValue] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -18,7 +18,6 @@ export default function NewsLayout() {
   useEffect(() => {
     if (!fetchArticlesAPI) return;
     fetchArticles();
-    // console.log('articles in NewsAppHooks', articles);
   }, [fetchArticlesAPI]);
 
   // const useOnChangeQuery = (query) => {
