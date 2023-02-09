@@ -1,9 +1,10 @@
 .card {
   height: 530px;
-  width: 400px;
+  min-width: 320px;
   margin: 0;
   padding: 0;
   margin-bottom: 45px;
+  position: relative;
 }
 
 .card__body {
@@ -48,6 +49,7 @@
   text-align: left;
   color: #363636;
   margin-bottom: 20px !important;
+  padding-bottom: 35px;
 }
 
 .card__description {

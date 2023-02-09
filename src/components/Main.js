@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../App.css';
+import '../components/pages_styles/Main/Main.css';
 
 import FilterForm from '../components/FilterForm/FilterForm.tsx';
 import ResultsBar from '../components/ResultsBar/ResultsBar.tsx';

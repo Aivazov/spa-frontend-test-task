@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { CardDateIcon } from '../Icons/cardDateIcon.js';
 import { CardBtnArrow } from '../Icons/cardBtnArrow.js';
-import './Card.scss';
+import '../components_styles/Card/Card.css';
 
 const convertTime = (time) => {
   return new Date(time).toLocaleDateString('en-us', {

@@ -1,26 +1,7 @@
-.App {
-  text-align: center;
-  background: #fff;
-  margin: 0 auto;
-  max-width: 1440px;
-}
-
-.wrap {
-  max-width: 1290px;
-  margin: 75px auto;
-  /* padding-left: 75px;
-  padding-right: 75px; */
-}
-
-.card__list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 0;
-}
-
-.load-more__btn {
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
 }
 
 .App-logo {
