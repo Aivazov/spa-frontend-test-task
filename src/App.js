@@ -26,11 +26,35 @@ const fetchArticlesAPI = ({
       `https://newsapi.org/v2/everything?q=${searchQuery}&pageSize=${pageSize}&page=${currentPage}`
     )
     .then((res) => {
+      // const objId = { id: idx };
+
+      // const dataWithId = res.data.articles.map((el, idx) => {
+      //   // const objId = { id: idx };
+      //   const newEl = [{...el, idx}];
+      //   // const newEl = [{ ...el, objId }];
+      //   console.log('newEl', newEl);
+      //   return newEl;
+      // });
+
+      // console.log('dataWithId', dataWithId);
       // console.log(res);
       // articles = res.data.articles;
       // console.log('articles in App:', res.data.articles);
 
+      // return dataWithId;
       return res.data.articles;
+    })
+    .then((data) => {
+      const newArr = [];
+      data.map((el, idx) => {
+        const newEl = { ...el, idx };
+        // const newEl = [{ ...el, objId }];
+        // console.log('newEl', newEl);
+        newArr.push(newEl);
+      });
+      console.log('newArr', newArr);
+
+      return newArr;
     });
 };
 
@@ -58,7 +82,7 @@ function App() {
         ></Route>
         {/* <Route path="/" element={<NewsApp items={articles} />}></Route> */}
         {/* <Route path="/:article" element={<Article />}></Route> */}
-        <Route path="/:idx" element={<Article items={articles} />}></Route>
+        <Route path="/:id" element={<Article items={articles} />}></Route>
         {/* <Route path="/onquery" element={<NewsAppWithoutFilter />}></Route> */}
         <Route path="*" element={<NotFound />} />
       </Routes>

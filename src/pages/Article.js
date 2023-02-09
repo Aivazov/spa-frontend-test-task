@@ -45,7 +45,7 @@ export default function Article({ items }) {
     <div>
       <div className="article__container">
         <img
-          src={articles2.urlToImage}
+          src={articles2.urlToImage}z
           alt=""
           className="article__image"
           style={{ backgroundPosition: 'center', height: 245 }}

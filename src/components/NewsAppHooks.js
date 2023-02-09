@@ -11,7 +11,7 @@ import Loader from './Loader/Loader.tsx';
 // import { fetchArticlesAPI } from '../api/fetchArticles.js';
 
 export default function NewsLayout({ items }) {
-  console.log('items', items);
+  // console.log('items', items);
   const [articles, setArticles] = useState([]);
   const [filteringValue, setFilteringValue] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
