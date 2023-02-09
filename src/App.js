@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import React from 'react';
-import NewsAppHooks from './components/NewsAppHooks';
+import NewsAppHooks from './components/Main';
 import NotFound from './pages/NotFound.tsx';
 import Article from './pages/Article.js';
 

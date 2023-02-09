@@ -19,7 +19,6 @@ export default function FilterForm({ onSubmit, value, onChange }) {
       return toast.error('Please enter an article name');
     }
     setSearchRequest('');
-    // console.log(searchRequest);
   };
 
   return (
@@ -38,9 +37,7 @@ export default function FilterForm({ onSubmit, value, onChange }) {
           autoFocus
           placeholder="Search articles"
           value={value}
-          // value={searchRequest}
           onChange={onChange}
-          // onChange={handleNameChange}
         />
       </form>
     </header>
