@@ -27,10 +27,15 @@ export default function MediaCard({ cards }) {
   return (
     <>
       {cards.map(
-        (
-          { title, url, description, publishedAt, urlToImage, content, id },
-          idx
-        ) => (
+        ({
+          title,
+          url,
+          description,
+          publishedAt,
+          urlToImage,
+          content,
+          idx,
+        }) => (
           <Card className="card" key={idx}>
             {/* {console.log('url in the card', url)} */}
             <CardMedia
@@ -71,15 +76,15 @@ export default function MediaCard({ cards }) {
                 {description}
               </Typography>
             </CardContent>
-            <CardActions>
-              <Link key={idx} to={`${idx}`} className="read-more__link">
+            <CardActions key={idx}>
+              <Link to={`${idx}`} className="read-more__link">
                 {/* <Link to="/article" className="read-more__link"> */}
                 <Button
                   color="secondary"
                   disabled={false}
                   className="card__button"
                 >
-                  Read more
+                  Read more {idx}
                   <span className="card__button--span">
                     <CardBtnArrow />
                   </span>

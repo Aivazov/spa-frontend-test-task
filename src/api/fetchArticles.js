@@ -1,11 +1,9 @@
 import axios from 'axios';
-// import React from 'react';
 
 axios.defaults.headers.common['Authorization'] =
   'Bearer 48e54ca0458d4c07a6db808cddd7a419';
 
 let articles = [];
-let result = null;
 console.log('articles before init', articles);
 // const array = [
 //   {
@@ -50,23 +48,28 @@ export const fetchArticlesAPI = ({
       `https://newsapi.org/v2/everything?q=${searchQuery}&pageSize=${pageSize}&page=${currentPage}`
     )
     .then((res) => {
-      // console.log(res);
       articles = res.data.articles;
-      // console.log('articles after init:', articles);
 
       return res.data.articles;
+    })
+    .then((data) => {
+      const newArr = [];
+      data.map((el, idx) => {
+        const newEl = { ...el, idx };
+        newArr.push(newEl);
+      });
+      console.log('newArr', newArr);
+      articles = newArr;
+      console.log('articles', articles);
+
+      return articles;
     });
 };
 
-export const getArticleByUrl = (articletUrl) => {
-  console.log('articles find', articles);
-  if (articles) {
-    result = articles.find((article) => article.url === articletUrl);
-    return result;
-  }
-  // let result = articles.find((article) => article.url === articletUrl);
-  console.log('result', result);
-  // return result;
-  // console.log('articles is:', articles);
-  // console.log('articles is:', articles);
+export const getArticleById = (articleId) => {
+  return articles.find((article) => {
+    const parsed = String(article.idx);
+    console.log('article.idx', article.idx);
+    return parsed === articleId;
+  });
 };

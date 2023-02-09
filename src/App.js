@@ -48,8 +48,6 @@ const fetchArticlesAPI = ({
       const newArr = [];
       data.map((el, idx) => {
         const newEl = { ...el, idx };
-        // const newEl = [{ ...el, objId }];
-        // console.log('newEl', newEl);
         newArr.push(newEl);
       });
       console.log('newArr', newArr);
@@ -72,6 +70,9 @@ function App() {
   //   });
   // }, 5000);
   // }, [articles]);
+  const getArticleById = (articleId) => {
+    return articles.find((article) => article.id === articleId);
+  };
 
   return (
     <div>
@@ -82,7 +83,13 @@ function App() {
         ></Route>
         {/* <Route path="/" element={<NewsApp items={articles} />}></Route> */}
         {/* <Route path="/:article" element={<Article />}></Route> */}
-        <Route path="/:id" element={<Article items={articles} />}></Route>
+        <Route
+          path="/:idx"
+          element={
+            <Article />
+            // <Article items={fetchArticlesAPI} getArticle={getArticleById} />
+          }
+        ></Route>
         {/* <Route path="/onquery" element={<NewsAppWithoutFilter />}></Route> */}
         <Route path="*" element={<NotFound />} />
       </Routes>

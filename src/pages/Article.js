@@ -4,18 +4,22 @@ import React, { useState, useEffect } from 'react';
 import { ArticleBtnArrow } from '../components/Icons/articleBtnArrow.js';
 // import { getProductById } from '../api/fakeAPI';
 // import cards from '../components/Card/Card';
-// import { fetchArticlesAPI } from '../api/fetchArticles.js';
+import { fetchArticlesAPI, getArticleById } from '../api/fetchArticles.js';
 import Button from '@mui/material/Button';
 import '../App.css';
 import './Article.css';
 
-export default function Article({ items }) {
-  const [articles2, setArticles2] = useState([]);
+export default function Article({ items, getArticle }) {
+  // const [articles2, setArticles2] = useState([]);
 
   const { idx } = useParams();
-  setArticles2(items);
+  // setArticles2(items);
   // const article = fetchArticlesAPI(idx);
-  // const article = getProductById(id);
+
+  console.log('idx', idx);
+  console.log('getArticleById(idx)', getArticleById(idx));
+  const article = getArticleById(idx);
+  console.log('article in Article.js', article);
   // let array = [];
   // const query: string = 'nasa';
   // const page: number = 1;
@@ -45,7 +49,8 @@ export default function Article({ items }) {
     <div>
       <div className="article__container">
         <img
-          src={articles2.urlToImage}z
+          src={article.urlToImage}
+          z
           alt=""
           className="article__image"
           style={{ backgroundPosition: 'center', height: 245 }}
@@ -53,10 +58,10 @@ export default function Article({ items }) {
         <div className="wrap article__body">
           <div className="container">
             <div>
-              <h1 className="article__title">{articles2.title}</h1>
+              <h1 className="article__title">{article.title}</h1>
             </div>
             <div className="wrap">
-              <p className="article__content">{articles2.description}</p>
+              <p className="article__content">{article.description}</p>
             </div>
             <Link to="/" className="link">
               <Button

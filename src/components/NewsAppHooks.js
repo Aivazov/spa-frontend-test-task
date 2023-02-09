@@ -8,7 +8,7 @@ import ResultsBar from '../components/ResultsBar/ResultsBar.tsx';
 import Card from './Card/Card.js';
 // import Article from './Article/Article.tsx';
 import Loader from './Loader/Loader.tsx';
-// import { fetchArticlesAPI } from '../api/fetchArticles.js';
+import { fetchArticlesAPI } from '../api/fetchArticles.js';
 
 export default function NewsLayout({ items }) {
   // console.log('items', items);
@@ -20,10 +20,11 @@ export default function NewsLayout({ items }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!items) return;
+    if (!fetchArticlesAPI) return;
+    // if (!items) return;
     fetchArticles();
     // console.log('articles in NewsAppHooks', articles);
-  }, [items]);
+  }, [fetchArticlesAPI]);
 
   const useOnChangeQuery = (query) => {
     useEffect(() => {
@@ -48,7 +49,8 @@ export default function NewsLayout({ items }) {
   //     setIsLoading(false);
   //   }, 300);
   setTimeout(() => {
-    items(options)
+    fetchArticlesAPI(options)
+      // items(options)
       .then((articles) => {
         setArticles(articles);
         setCurrentPage(currentPage + 1);
