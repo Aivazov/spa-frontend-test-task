@@ -46,9 +46,6 @@ export default function Article() {
             </Link>
           </div>
         </div>
-        <div>
-          <p>empty</p>
-        </div>
       </div>
     </div>
   );
