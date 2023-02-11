@@ -9,12 +9,13 @@ import '../components/pages_styles/Article/Article.css';
 export default function Article() {
   const { idx } = useParams();
   const article = getArticleById(idx);
+  const { urlToImage, title, description } = article;
 
   return (
     <div>
       <div className="article__container">
         <img
-          src={article.urlToImage}
+          src={urlToImage}
           z
           alt=""
           className="article__image"
@@ -23,13 +24,13 @@ export default function Article() {
         <div className="wrap article__body">
           <div className="container">
             <div>
-              <h1 className="article__title">{article.title}</h1>
+              <h1 className="article__title">{title}</h1>
             </div>
             <div className="wrap">
-              <p className="article__content">{article.description}</p>
+              <p className="article__content">{description}</p>
             </div>
             <div className="wrap">
-              <p className="article__content">{article.description}</p>
+              <p className="article__content">{description}</p>
             </div>
             <Link to="/" className="link">
               <Button
