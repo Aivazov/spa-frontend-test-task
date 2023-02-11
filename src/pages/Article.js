@@ -4,7 +4,7 @@ import { ArticleBtnArrow } from '../components/Icons/articleBtnArrow.js';
 import { getArticleById } from '../api/fetchArticles.js';
 import Button from '@mui/material/Button';
 import '../App.css';
-import './Article.css';
+import '../components/pages_styles/Article/Article.scss';
 
 export default function Article() {
   const { idx } = useParams();

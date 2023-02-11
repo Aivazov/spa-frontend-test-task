@@ -10,7 +10,7 @@
 .card__body {
   display: flex;
   overflow: hidden;
-  height: 226px;
+  height: 240px;
   flex-direction: column;
   flex: 1 1 auto;
 }

@@ -10,7 +10,7 @@
 .card__body {
   display: flex;
   overflow: hidden;
-  height: 226px;
+  height: 240px;
   flex-direction: column;
   flex: 1 1 auto;
 }
@@ -54,6 +54,7 @@
 
 .card__description {
   height: 105px;
+  // padding-bottom: 25px;
   font-family: 'Montserrat';
   overflow: hidden;
   font-style: normal;
