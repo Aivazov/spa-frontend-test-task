@@ -8,7 +8,7 @@ let articles = [];
 export const fetchArticlesAPI = ({
   searchQuery = 'nasa',
   currentPage = 1,
-  pageSize = 6,
+  pageSize = 50,
 }) => {
   return axios
     .get(

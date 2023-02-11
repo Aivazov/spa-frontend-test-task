@@ -4,7 +4,7 @@ import { ArticleBtnArrow } from '../components/Icons/articleBtnArrow.js';
 import { getArticleById } from '../api/fetchArticles.js';
 import Button from '@mui/material/Button';
 import '../App.css';
-import '../components/pages_styles/Article/Article.scss';
+import '../components/pages_styles/Article/Article.css';
 
 export default function Article() {
   const { idx } = useParams();
@@ -28,6 +28,9 @@ export default function Article() {
             <div className="wrap">
               <p className="article__content">{article.description}</p>
             </div>
+            <div className="wrap">
+              <p className="article__content">{article.description}</p>
+            </div>
             <Link to="/" className="link">
               <Button
                 color="secondary"
@@ -41,6 +44,9 @@ export default function Article() {
               </Button>
             </Link>
           </div>
+        </div>
+        <div>
+          <p>empty</p>
         </div>
       </div>
     </div>

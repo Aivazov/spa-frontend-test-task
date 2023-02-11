@@ -62,9 +62,9 @@ export default function Main() {
           {error && <h1>This is a mistake {error.message}</h1>}
 
           <FilterForm value={filteringValue} onChange={onChangeFilterValue} />
-          <p>
+          {/* <p>
             <mark>{normalizedFilteringValue}</mark>
-          </p>
+          </p> */}
           <ResultsBar total={filteredArticles.length} />
 
           {/* Rendering Cards */}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 // import Highlighter from 'react-highlight-words'
 import { BiSearch } from 'react-icons/bi';
-import './FilterForm.scss';
+import '../components_styles/FilterForm/FilterForm.css';
 
 export default function FilterForm({ onSubmit, value, onChange }) {
   const [searchRequest, setSearchRequest] = useState('');
