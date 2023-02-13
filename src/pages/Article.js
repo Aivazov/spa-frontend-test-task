@@ -8,15 +8,15 @@ import '../components/pages_styles/Article/Article.css';
 
 export default function Article() {
   const { idx } = useParams();
-  const article = getArticleById(idx);
-  const { urlToImage, title, description } = article;
+  const articleData = getArticleById(idx);
+  // console.log(article);
+  const { urlToImage, title, description } = articleData;
 
   return (
     <div>
       <div className="article__container">
         <img
           src={urlToImage}
-          z
           alt=""
           className="article__image"
           style={{ backgroundPosition: 'center', height: 245 }}
