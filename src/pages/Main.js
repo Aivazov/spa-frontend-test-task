@@ -3,8 +3,8 @@ import '../components/pages_styles/Main/Main.css';
 
 import FilterForm from '../components/FilterForm/FilterForm.tsx';
 import ResultsBar from '../components/ResultsBar/ResultsBar.tsx';
-import Card from './Card/Card.js';
-import Loader from './Loader/Loader.tsx';
+import Card from '../components/Card/Card.js';
+import Loader from '../components/Loader/Loader.tsx';
 import { fetchArticlesAPI } from '../api/fetchArticles.js';
 
 export default function Main() {
@@ -18,7 +18,7 @@ export default function Main() {
   useEffect(() => {
     if (!fetchArticlesAPI) return;
     fetchArticles();
-  }, [fetchArticlesAPI]);
+  }, []);
 
   // const useOnChangeQuery = (query) => {
   //   useEffect(() => {

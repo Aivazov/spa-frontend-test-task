@@ -1,12 +1,13 @@
 import { Routes, Route } from 'react-router-dom';
 import React from 'react';
-import Main from './components/Main';
+import Main from './pages/Main';
 import NotFound from './pages/NotFound.tsx';
 import Article from './pages/Article.js';
 
 function App() {
   return (
     <div>
+      {/* <Main /> */}
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/:idx" element={<Article />} />
