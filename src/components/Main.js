@@ -3,7 +3,7 @@ import '../components/pages_styles/Main/Main.css';
 
 import FilterForm from '../components/FilterForm/FilterForm.tsx';
 import ResultsBar from '../components/ResultsBar/ResultsBar.tsx';
-import Card from '../components/Card/Card.js';
+import Card from './Card/Card.js';
 import Loader from '../components/Loader/Loader.tsx';
 import { fetchArticlesAPI } from '../api/fetchArticles.js';
 
