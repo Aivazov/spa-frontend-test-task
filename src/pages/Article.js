@@ -55,8 +55,8 @@ export default function Article() {
     return (
       <div style={{ marginLeft: 15 }}>
         {/* <h1>Oops... Something went wrong</h1> */}
-        <Main />
-        {/* <NotFound /> */}
+        {/* <Main /> */}
+        <NotFound />
       </div>
     );
   }
