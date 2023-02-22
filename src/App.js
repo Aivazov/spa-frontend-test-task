@@ -9,8 +9,8 @@ function App() {
     <div>
       {/* <Main /> */}
       <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/:idx" element={<Article />} />
+        <Route path="/" element={<Main />}></Route>
+        <Route path=":idx" element={<Article />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
