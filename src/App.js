@@ -10,7 +10,7 @@ function App() {
       {/* <Main /> */}
       <Routes>
         <Route path="/" element={<Main />}></Route>
-        <Route path=":idx" element={<Article />} />
+        {/* <Route path=":idx" element={<Article />} /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
