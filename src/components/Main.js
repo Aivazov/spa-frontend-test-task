@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
 import '../components/pages_styles/Main/Main.css';
 
 import FilterForm from '../components/FilterForm/FilterForm.tsx';
@@ -97,6 +98,7 @@ export default function Main() {
             <p>No matches. Please try again</p>
           )}
         </div>
+        <Outlet />
       </div>
     </div>
   );
