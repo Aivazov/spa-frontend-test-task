@@ -33,7 +33,7 @@ export default function Article() {
               <div className="wrap">
                 <p className="article__content">{articleData.description}</p>
               </div>
-              <Link to="/" className="link">
+              <Link to="/spa-frontend-test-task" className="link">
                 <Button
                   color="secondary"
                   disabled={false}

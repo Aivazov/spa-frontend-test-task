@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <div style={{ margin: 15 }}>
       <h1 style={{ marginLeft: 0, marginBottom: 15 }}>Page not found</h1>
-      <Link to="/" className="link">
+      <Link to="/spa-frontend-test-task" className="link">
         <Button color="secondary" disabled={false} className="card__button">
           <span style={{ marginRight: 6, display: 'block' }}>
             <ArticleBtnArrow />
