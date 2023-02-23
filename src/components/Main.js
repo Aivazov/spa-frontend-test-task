@@ -98,7 +98,7 @@ export default function Main() {
             <p>No matches. Please try again</p>
           )}
         </div>
-        <Outlet />
+        {/* <Outlet /> */}
       </div>
     </div>
   );
