@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 axios.defaults.headers.common['Authorization'] =
   'Bearer 48e54ca0458d4c07a6db808cddd7a419';
 
@@ -13,6 +14,7 @@ export const fetchArticlesAPI = ({
   return axios
     .get(
       `https://newsapi.org/v2/everything?q=${searchQuery}&pageSize=${pageSize}&page=${currentPage}`
+      // `${proxyUrl}https://newsapi.org/v2/everything?q=${searchQuery}&pageSize=${pageSize}&page=${currentPage}`
     )
     .then((res) => {
       articles = res.data.articles;
