@@ -5,8 +5,8 @@ import Article from './Article';
 export default function ArticlePage() {
   return (
     <div>
-      <Article />
-      {/* <Outlet /> */}
+      {/* <Article /> */}
+      <Outlet />
     </div>
   );
 }
